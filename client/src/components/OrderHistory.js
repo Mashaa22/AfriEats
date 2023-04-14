@@ -29,6 +29,7 @@ function OrderHistory() {
     <thead class="table-dark">
       <tr>
       <th>Food</th>
+      <th>Name</th>
       <th>Price</th>
       <th>Quantity</th>
       <th>Date</th>
@@ -39,18 +40,21 @@ function OrderHistory() {
   
     <tbody>
      <tr>
+      <td><img class="circular-image" src="./images/Chicken.jpg" /></td>
       <td>Double chicken</td>
       <td>KFC</td>
       <td>1</td>
       <td>5-2-2023</td>
     </tr> 
     <tr>
+    <td><img class="circular-image" src="./images/Chicken.jpg" /></td>
       <td>Double chicken</td>
       <td>KFC</td>
       <td>1</td>
       <td>5-2-2023</td>
     </tr> 
     <tr>
+      <td><img class="circular-image" src="./images/Chicken.jpg" /></td>
       <td>Double chicken</td>
       <td>KFC</td>
       <td>1</td>
@@ -70,6 +74,7 @@ function OrderHistory() {
     <thead class="table-dark">
       <tr>
       <th>Food</th>
+      <th>Name</th>
       <th>Price</th>
       <th>Quantity</th>
       <th>Date</th>
@@ -80,18 +85,21 @@ function OrderHistory() {
   
     <tbody>
      <tr>
+      <td><img class="circular-image" src="./images/Chicken.jpg" /></td>
       <td>Double chicken</td>
       <td>KFC</td>
       <td>1</td>
       <td>5-2-2023</td>
     </tr> 
     <tr>
+      <td><img class="circular-image" src="./images/Chicken.jpg" /></td>
       <td>Double chicken</td>
       <td>KFC</td>
       <td>1</td>
       <td>5-2-2023</td>
     </tr> 
     <tr>
+      <td><img class="circular-image" src="./images/Chicken.jpg" /></td>
       <td>Double chicken</td>
       <td>KFC</td>
       <td>1</td>

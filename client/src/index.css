@@ -42,9 +42,13 @@ code {
 
 }
 
-
-
 .user-details{
   margin-left: 40px;
   display: flex; flex-direction: column;
+}
+
+.circular-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
