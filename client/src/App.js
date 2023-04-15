@@ -1,7 +1,7 @@
 import "./App.css";
 import Login from "./components/Login";
 import Landing from "./components/Landing";
-// import Signup from "./components/Signup";
+import Signup from "./components/Signup";
 // import AdminLogin from "./components/AdminLogin";
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState, createContext } from "react";
@@ -28,7 +28,7 @@ function App() {
         <AdminContext.Provider value={[admin, setAdmin]}>
           <Routes>
             <Route path="/" element={<Landing />}></Route>
-            {/* <Route path="/signup" element={<Signup />}></Route> */}
+            <Route path="/signup" element={<Signup />}></Route>
             <Route path="/login" element={<Login />}></Route>
             {/* <Route path="/adminlogin" element={<AdminLogin />}></Route> */}
           </Routes>
