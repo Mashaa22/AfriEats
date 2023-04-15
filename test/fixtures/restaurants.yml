@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  admin: one
+  name: MyString
+  image_url: MyString
+  chef_url: MyString
+  chef_quote: MyString
+  chef_name: MyString
+
+two:
+  admin: two
+  name: MyString
+  image_url: MyString
+  chef_url: MyString
+  chef_quote: MyString
+  chef_name: MyString
