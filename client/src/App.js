@@ -1,5 +1,5 @@
 import "./App.css";
-// import Login from "./components/Login";
+import Login from "./components/Login";
 import Landing from "./components/Landing";
 // import Signup from "./components/Signup";
 // import AdminLogin from "./components/AdminLogin";
@@ -28,9 +28,9 @@ function App() {
         <AdminContext.Provider value={[admin, setAdmin]}>
           <Routes>
             <Route path="/" element={<Landing />}></Route>
-            {/* <Route path="/signup" element={<Signup />}></Route>
+            {/* <Route path="/signup" element={<Signup />}></Route> */}
             <Route path="/login" element={<Login />}></Route>
-            <Route path="/adminlogin" element={<AdminLogin />}></Route> */}
+            {/* <Route path="/adminlogin" element={<AdminLogin />}></Route> */}
           </Routes>
         </AdminContext.Provider>
       </UserContext.Provider>
