@@ -3,6 +3,7 @@ import Login from "./components/Login";
 import Landing from "./components/Landing";
 import Signup from "./components/Signup";
 import AdminLogin from "./components/AdminLogin";
+import AdminSignup from "./components/AdminSignup";
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState, createContext } from "react";
 
@@ -30,6 +31,7 @@ function App() {
             <Route path="/" element={<Landing />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/login" element={<Login />}></Route>
+            <Route path="/adminsignup" element={<AdminSignup/>} ></Route>
             <Route path="/adminlogin" element={<AdminLogin />}></Route>
           </Routes>
         </AdminContext.Provider>
