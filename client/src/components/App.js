@@ -3,6 +3,7 @@ import OrderHistory from "./OrderHistory";
 import OrderStatus from "./OrderStatus";
 import RestaurantView from "./RestaurantView";
 import Slides from "./Slides";
+import Checkout from "./Checkout";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/order-history" element={<OrderHistory />} />
         <Route path="/restaurant-view" element={<RestaurantView />} />
         <Route path="/slides" element={<Slides />} />
+        <Route path="/checkout" element={<Checkout />}/>
      
 
      

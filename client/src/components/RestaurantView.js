@@ -9,7 +9,7 @@ function RestaurantView() {
     <img src="./images/kfc.jpg" style={{ width: "100%", height: "300px", objectFit:"cover" }} /> 
     </div>
   
- <div class="container" style={{ marginTop: "20px" }}>
+ <div class="container" style={{ marginTop: "20px" , width: "100%",}}>
   <div class="card-restaurant">
     <div class="row no-gutters">
 
