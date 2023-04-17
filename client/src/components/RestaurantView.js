@@ -1,11 +1,12 @@
 import Slides from "./Slides";
+import "./Order.css";
 
 function RestaurantView() {
     return (
       <div>
   
    <div> 
-    <img src="./images/kfc.jpg" style={{ width: "100%", height: "200px" }} /> 
+    <img src="./images/kfc.jpg" style={{ width: "100%", height: "300px", objectFit:"cover" }} /> 
     </div>
   
  <div class="container" style={{ marginTop: "20px" }}>
@@ -16,7 +17,7 @@ function RestaurantView() {
         <h2>Chef's Quote</h2>
         <br></br>
         <br></br>
-        <img src="./images/Gordon.jpg" style={{ width: "70%", height: "200px" }} /> 
+        <img src="./images/Gordon.jpg" style={{ width: "70%", height: "200px", objectFit:"cover"}} /> 
         <br></br>
         <br></br>
         <p>Cooking is like painting. Just as there are only so many notes or colours, there are only so many flowers.It is how you combine them that sets your apart</p>

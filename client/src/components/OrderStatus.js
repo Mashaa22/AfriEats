@@ -1,3 +1,4 @@
+import "./Order.css";
 
 function OrderStatus() {
     return (

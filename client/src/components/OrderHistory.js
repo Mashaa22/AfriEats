@@ -1,3 +1,5 @@
+import "./Order.css";
+
 function OrderHistory() {
     return (
        
