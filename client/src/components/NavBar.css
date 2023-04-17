@@ -12,6 +12,9 @@ font-family: 'Roboto', sans-serif;
     padding: 0.5rem 1rem;
     background-color: #3e3d3d;
     border-radius: 3px;
+    position: fixed;
+   
+    
     
     
   }

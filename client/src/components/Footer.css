@@ -7,11 +7,11 @@
     /* align-content: flex-end; */
     background-color: #3e3d3d;
     color: white;
-    position:absolute;
+    /* position:fixed; */
     left:0;
     bottom:0;
     right:0;
-     
+    
 
     
 
