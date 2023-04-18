@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :menuoptions
+  resources :restaurants
+  resources :meals
+  resources :orders
   resources :admins
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -25,6 +25,7 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update admin" do
     patch admin_url(@admin), params: { admin: { email: @admin.email, image: @admin.image, name: @admin.name, password_digest: @admin.password_digest } }, as: :json
+
     assert_response :success
   end
 

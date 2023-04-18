@@ -1,6 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+
   name: MyString
   email: MyString
   image: MyString
@@ -11,3 +12,4 @@ two:
   email: MyString
   image: MyString
   password_digest: MyString
+
