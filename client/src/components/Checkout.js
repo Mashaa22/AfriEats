@@ -16,7 +16,7 @@ function Checkout() {
 
 
   <div class="card-checkout" style={{width: "70%", marginTop:"20px", height:"400px"}}>
-    <div class="row no-gutters">
+    <div >
 
     <table class="table"  >
     <thead>

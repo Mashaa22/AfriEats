@@ -4,6 +4,7 @@ import OrderStatus from "./OrderStatus";
 import RestaurantView from "./RestaurantView";
 import Slides from "./Slides";
 import Checkout from "./Checkout";
+import Notification from "./Notification";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/restaurant-view" element={<RestaurantView />} />
         <Route path="/slides" element={<Slides />} />
         <Route path="/checkout" element={<Checkout />}/>
+        <Route path="/notification" element ={<Notification/>}/>
      
 
      

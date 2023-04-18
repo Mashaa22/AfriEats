@@ -42,6 +42,12 @@ function OrderStatus() {
     </tbody>
   </table>
         </div>
+<div class="order-buttons">
+<button type="button" class="btn btn-dark">Cancel Order</button>
+<button type="button" class="btn btn-dark">Received</button>
+
+</div>
+
       </div>
     );
   }
