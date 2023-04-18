@@ -2,7 +2,7 @@ import React from "react";
 
 function Landing() {
   const backgroundStyle = {
-    backgroundImage: "url('./images/cover.png')",
+    backgroundImage: "url('./images/covers.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     minHeight: "100vh",
@@ -56,13 +56,13 @@ function Landing() {
         <span style={yellowStyle}>Eats</span>
       </div>
       <div style={contentStyle}>
-        <p className="text-2xl text-white">
+        <p className="text-2xl text-black">
           We are giving your hunger new option, AfriEats is what you deserve.
         </p>
         <div className="flex justify-center mt-10 gap-8">
           <a
             href="/login"
-            className="bg-white-500 hover:bg-blue-700 text-blue-700 hover:text-white font-bold py-2 px-10 rounded-full border-2 border-white"
+            className="bg-yellow-500 hover:bg-blue-700 text-blue-700 hover:text-white font-bold py-2 px-10 rounded-full border-2 border-white"
           >
             Login
           </a>
