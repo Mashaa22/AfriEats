@@ -71,4 +71,17 @@
     margin: 3px;
     padding: 2px;
   }
-  
+  .row-links button{
+    background-color: #f2cc22;
+    position: absolute;
+    top: 10;
+    left: 5;
+    right: 0;
+  }
+  .row-links{
+    position: relative;
+  }
+input {
+  background-color: #696767;
+  color: white;
+}

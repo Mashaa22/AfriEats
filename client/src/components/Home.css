@@ -7,9 +7,6 @@
     padding-right: 100px;
     
   }
-  /* .image-home{
-   
-  } */
   
   .restaurant-image {
     display: flex;
@@ -51,4 +48,13 @@
 }
 .text{
   text-align: center;
+}
+.icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-around;
+  margin: 10px;
+
 }

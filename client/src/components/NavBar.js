@@ -1,12 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import{IoNotifications, IoCart, IoPersonCircleSharp} from 'react-icons/io5';
+
 import './NavBar.css';
 
 
 function NavBar() {
   return (
-     <nav className="navbar">
+     <nav>
       <div className="navbar__logo">
         <h1>
           <b className='capital'>A</b>FRI<b className="navbar__logo-eats"><b className='capital'>E</b>ATS</b>

@@ -1,6 +1,7 @@
 import React from 'react'
 import './Footer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FaLongArrowAltRight} from "react-icons/fa";
 
 import { AiFillFacebook, AiFillTwitterSquare,AiOutlineInstagram,AiFillYoutube } from "react-icons/ai";
 
@@ -64,6 +65,11 @@ function Footer() {
           <p> Stay updated with our latest news</p>
           
           <input type="email" id="email" name="email" placeholder='Enter Email'></input>
+          
+          <button type="submit"><FaLongArrowAltRight size={25}color="black" backGroundColor="yellow"/></button>
+          
+          
+          
           
           
         
