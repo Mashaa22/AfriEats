@@ -3,6 +3,9 @@ import Login from "./components/Login";
 import Landing from "./components/Landing";
 import Signup from "./components/Signup";
 import AdminLogin from "./components/AdminLogin";
+
+import AdminLogin from "./components/AdminLogin";
+
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState, createContext } from "react";
 

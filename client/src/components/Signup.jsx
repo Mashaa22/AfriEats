@@ -8,17 +8,24 @@ const mockData = {
   password: "mockPassword123",
   id_number: "37521958",
   gender: "FeMale",
+  username: "Emmanuel Maxwell",
+  email: "emmax@gmail.com",
+  password: "mockPassword123",
+  id_number: "37521958",
+  gender: "Male",
 };
 
 function Signup() {
   const navigate = useNavigate();
   const [customer, setCustomer] = useState(mockData);
+  const [customer, setStudent] = useState(mockData);
 
   function handleRegister(event) {
     event.preventDefault();
     console.log(customer);
 
     fetch("/customers", {
+    fetch("/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,6 +59,7 @@ function Signup() {
       });
 
     setCustomer(mockData);
+    setStudent(mockData);
   }
 
   const logoStyle = {
@@ -103,6 +111,7 @@ function Signup() {
                 <h1 className="text-black font-bold text-5xl mb-16">
                   Join Us Now!!
                   <br className="mt-4" />
+                  <br />
                   <span className="text-6xl">🥳🎉</span>
                 </h1>
 
@@ -148,6 +157,8 @@ function Signup() {
                       value={customer.username}
                       onChange={(event) =>
                         setCustomer((prevState) => ({
+
+                        setStudent((prevState) => ({
                           ...prevState,
                           username: event.target.value,
                         }))
@@ -169,6 +180,7 @@ function Signup() {
                       value={customer.email}
                       onChange={(event) =>
                         setCustomer((prevState) => ({
+                        setStudent((prevState) => ({
                           ...prevState,
                           email: event.target.value,
                         }))
@@ -190,6 +202,7 @@ function Signup() {
                       value={customer.password}
                       onChange={(event) =>
                         setCustomer((prevState) => ({
+                        setStudent((prevState) => ({
                           ...prevState,
                           password: event.target.value,
                         }))
@@ -211,6 +224,7 @@ function Signup() {
                       value={customer.confirm_password}
                       onChange={(event) =>
                         setCustomer((prevState) => ({
+                        setStudent((prevState) => ({
                           ...prevState,
                           confirm_password: event.target.value,
                         }))
