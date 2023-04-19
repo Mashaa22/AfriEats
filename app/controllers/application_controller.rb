@@ -1,21 +1,20 @@
 class ApplicationController < ActionController::API
-    protect_from_forgery with: :null_session
-    before_action :authorize
+
+    wrap_parameters format: []
+    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found_response
+    rescue_from ActiveRecord::RecordInvalid, with: :record_invalid_response
   
     def encode_token(payload)
-      # should store secret in env variable
       JWT.encode(payload, 'my_s3cr3t')
     end
   
     def auth_header
-      # { Authorization: 'Bearer <token>' }
       request.headers['Authorization']
     end
   
     def decoded_token
       if auth_header
         token = auth_header.split(' ')[1]
-        # header: { 'Authorization': 'Bearer <token>' }
         begin
           JWT.decode(token, 'my_s3cr3t', true, algorithm: 'HS256')
         rescue JWT::DecodeError
@@ -36,16 +35,9 @@ class ApplicationController < ActionController::API
     def logged_in?
       !!@current_user 
     end
-    # def adminlog_in?
-    #   !!@current_admin 
-    # end
     def logged
       render json: { logged_in: logged_in?, current_user: @current_user }, include: :books
     end
-  
-    # def administration
-    #   render json: { adminlog_in: adminlog_in?, current_admin: @current_admin }, include: :books
-    # end
     
     def authorized_user
       render json: { message: 'Please log in as a user' }, status: :unauthorized unless logged_in? && @current_user.is_a?(User)
@@ -69,5 +61,3 @@ class ApplicationController < ActionController::API
     end
     
   end
-  
-end
