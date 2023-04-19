@@ -190,7 +190,7 @@ function AdminLogin() {
                     <Link
                       className="text-black-500 hover:text-black-700"
                       to="/adminsignup "
-                    >
+                    > 
                       <span className="text-black">
                         Don't have an account?{" "}
                       </span>

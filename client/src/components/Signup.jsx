@@ -6,13 +6,7 @@ const mockData = {
   username: "Daisy Jebby",
   email: "jebby@gmail.com",
   password: "mockPassword123",
-  id_number: "37521958",
-  gender: "FeMale",
-  username: "Emmanuel Maxwell",
-  email: "emmax@gmail.com",
-  password: "mockPassword123",
-  id_number: "37521958",
-  gender: "Male",
+  id_number: "37521958"
 };
 
 function Signup() {
