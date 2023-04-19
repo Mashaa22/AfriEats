@@ -1,0 +1,75 @@
+.my-cart-image{
+    display: flex;
+    background-size: cover;
+    width: 100%;
+    line-height: 270px;
+    height: 250px;
+    justify-content: center;
+}
+.my-cart-image p{
+    font-size: xx-large;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.726);
+}
+.cart-table{
+    margin: 5vw;
+}
+.head{
+    background-color: #424141;
+    color: antiquewhite;
+}
+/*.head  > th:nth-child(1){
+    background: #424141;
+    border-radius:30px 0px 0px 30px;
+}*/
+.head > th:nth-child(5){
+    background: #424141;
+    border-radius:0px 30px 30px 0px;
+}
+tbody tr{
+    padding: 5vw;
+}
+tbody img{
+    margin-left: 3vw;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+#quantity{
+    max-width: 60px;
+}
+#quantity-btn{
+    display: flex;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+#quantity-btn span{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgb(247, 191, 8);
+}
+.cart-bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 5vw;
+}
+.delivery-address{
+    display: flex;
+    height: 35px;
+    width:fit-content;
+}
+.delivery-address input{
+    background-color: rgb(202, 209, 214);
+}
+.total button{
+    margin-top: 15px;
+    width: 150px;
+    padding-bottom: 2px;
+}
