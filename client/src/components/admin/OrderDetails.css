@@ -1,0 +1,25 @@
+.orders-table{
+    margin: 5vw;
+}
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5vw;
+    margin-top: 0%;
+}   
+.head{
+    background-color: #424141;
+    color: antiquewhite;
+}
+.head  > th:nth-child(1){
+    background: #424141;
+    border-radius:30px 0px 0px 30px;
+}
+.head > th:nth-child(6){
+    background: #424141;
+    border-radius:0px 30px 30px 0px;
+}
+tbody tr{
+    padding: 5vw;
+}
