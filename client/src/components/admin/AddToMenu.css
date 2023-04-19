@@ -1,0 +1,74 @@
+.menu-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #bdc6f57c;
+}
+.upload-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+    background-color: #bdc6f5;
+}
+#file {
+ display: none;
+}
+.file-style {
+    font-family: 'Trebuchet MS';
+    width: 300px;
+    background-color: #bdc6f5;
+    margin: 15px;
+    cursor: pointer;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px dashed #6d6d6de8;
+}
+.file-style span{
+    font-size: xx-large;
+    border-radius: 50%;
+}
+.display-image{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-left: 7vw;
+}
+.add-to-menu{
+    display: flex;
+    flex-direction: column;
+    width: 55vw;
+    padding: 20px;
+}
+.add-to-menu div{
+    margin-bottom: 2%;
+}
+.restaurant{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: fit-content;
+}
+.restaurant select{
+    margin-left: 10px;
+    width: 5px;
+}
+.price{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: fit-content;
+}
+.price input{
+    margin-left: 53px;
+    width: 100px;
+}
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
+    width: 25vw;
+}
