@@ -1,12 +1,17 @@
+.order-details{
+    background-color: #bdc6f567;
+}
 .orders-table{
     margin: 5vw;
+    margin-top: 3vw;
 }
 .title{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 5vw;
-    margin-top: 0%;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-top: 2%;
 }   
 .head{
     background-color: #424141;

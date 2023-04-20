@@ -26,7 +26,6 @@ function App() {
   useEffect(() => {
     setAdmin(mockAdmin);
   }, []);
-
   return (
     <div className="App">
       <UserContext.Provider value={[user, setUser]}>

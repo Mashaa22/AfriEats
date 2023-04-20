@@ -1,11 +1,9 @@
 .content-container {
   display: flex;
   height: 100vh;
+  text-decoration: none;
 }
-
-.dashboard-container {
-  flex: 1;
+.dashboard-container{
   padding: 20px;
-  min-width: 82.5vw;
-
+  min-width: 80.5%;
 }
