@@ -65,7 +65,7 @@ function AdminLogin() {
     fontSize: "2rem",
     fontWeight: "bold",
     fontFamily: "serif",
-    marginRight: "0.5rem",
+    // marginRight: "0.5rem",
   };
 
   const yellowStyle = {
@@ -92,17 +92,16 @@ function AdminLogin() {
       <div className="flex justify-between h-screen  px -10 py-12">
         <div div className="flex">
           {/* Content for the left box */}
-          <div className="w-3/4 bg-yellow-200 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 mx-4 flex items-center">
-            <div className="mx-auto text-center">
-              <div className="text-center">
-                <h1 className="text-black  font-bold text-4xl mb-16">
+          <div className="md:w-3/4 sm:w-3/4 lg:w-full bg-yellow-500 opacity-75 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 mx-4 flex items-center">
+            <div className="mx-auto text-center m-4">
+              <div className="text-center m-4">
+                <h1 className="text-black font-bold text-5xl mb-16">
                   Welcome Back!
                 </h1>
-                <p className="text-white">
+                <p className="text-white mb-16">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia
                 illum eius, aspernatur reprehenderit soluta vitae obcaecati
                 provident sed vel, quam facere fuga quibusdam beatae.
-                Perferendis molestias corporis omnis aperiam ad!
               </p>
                 <div className="text-black font-bold">
                   The Best Choice You Will Make!
@@ -110,23 +109,24 @@ function AdminLogin() {
               </div>
             </div>
           </div>
-          <div className="h-full  flex flex-col items-center justify-center px-18 py-50 md:w-full lg:py-0">
-            <div className="w-full h-full  flex justif-center items-center bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
-              <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <div className="w-3/4 h-full flex flex-col items-center justify-center px-18 py-50  md:w-full lg:py-0 mr-6">
+            <div className="w-full h-full  flex justify-center items-center bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 " style={{ padding: "40px" }}>
+              <div className="p-6 space-y-4 md:space-y-6 sm:p-8 w-full"  style={{ width: "100%", maxWidth: "700px" }}>
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                    Admin Login
                 </h1>
                 <form
-                  className="bg-white p-6 rounded-lg shadow-md"
+                  className="grid grid-cols-1 gap-3"
                   onSubmit={handleLogin}
+                  style={{maxWidth: "700px"}}
                 >
-                  <div className="mb-4">
+                  <div className="flex flex-col">
                     <label
-                      className="block text-gray-700 font-bold mb-2"
+                      className="mb-2 text-sm font-medium text-gray-900"
                       htmlFor="email"
                     ></label>
                     <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
                       type="email"
                       id="email"
                       value={login.username}
@@ -140,16 +140,16 @@ function AdminLogin() {
                       required
                     />
                   </div>
-                  <div className="mb-6">
+                  <div className="flex flex-col">
                     <label
-                      className="block text-gray-700 font-bold mb-2"
+                      className="mb-2 text-sm font-medium text-gray-900"
                       htmlFor="password"
                     ></label>
                     <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
                       type="password"
                       id="password"
-                      placeholder="Password"
+                      placeholder="password"
                       value={login.password}
                       onChange={(event) =>
                         setLogin((prevState) => ({
@@ -160,16 +160,16 @@ function AdminLogin() {
                       required
                     />
                   </div>
-                  <div className="mb-6">
+                  <div className="flex flex-col">
                     <label
-                      className="block text-gray-700 font-bold mb-2"
+                      className="mb-2 text-sm font-medium text-gray-900"
                       htmlFor="password"
                     ></label>
                     <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
                       type="pin"
                       id="pin"
-                      placeholder="Pin"
+                      placeholder="pin"
                       value={login.pin}
                       onChange={(event) =>
                         setLogin((prevState) => ({
@@ -188,17 +188,16 @@ function AdminLogin() {
                   </button>
                   <div className="mt-4 text-center flex  flex-col justify-between">
                     <Link
-                      className="text-black-500 hover:text-black-700"
+                      className="text-black-500 hover:underline"
                       to="/adminsignup "
                     > 
                       <span className="text-black">
-                        Don't have an account?{" "}
+                        Don't have an account?{" "} Sign up
                       </span>
-                      Sign up
                     </Link>
-                    <Link to="/" className="underline text-black-500">
+                    {/* <Link to="/" className="underline text-black-500">
                       Homepage
-                    </Link>
+                    </Link> */}
                   </div>
                 </form>
               </div>
