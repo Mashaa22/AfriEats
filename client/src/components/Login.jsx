@@ -61,7 +61,7 @@ function Login() {
     fontSize: "2rem",
     fontWeight: "bold",
     fontFamily: "serif",
-    marginRight: "0.5rem",
+    // marginRight: "0.5rem",
   };
 
   const yellowStyle = {
@@ -84,16 +84,16 @@ function Login() {
         <span style={whiteStyle}>Afri</span>
         <span style={yellowStyle}>Eats</span>
       </div>
-      <div className="flex justify-between h-screen  px -10 py-12">
-        <div div className="flex">
+      <div className="flex justify-between h-screen px -10 py-12">
+        <div div className="flex ">
           {/* Content for the left box */}
-          <div className="w-3/4 bg-yellow-200 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 mx-4 flex items-center">
-            <div className="mx-auto text-center">
+          <div className="md:w-3/4 sm:w-3/4 h-full bg-yellow-500 opacity-75 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 mx-4 flex items-center">
+            <div className="h-full flex justify-center items-center mx-auto text-center">
               <div className="text-center">
-                <h1 className="text-black  font-bold text-4xl mb-16">
+                <h1 className="text-black font-bold text-4xl mb-16">
                   Welcome Back!
                 </h1>
-                <p className="text-white">
+                <p className="text-white m-2 p-2 text-center">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia
                   illum eius, aspernatur reprehenderit soluta vitae obcaecati
                   provident sed vel, quam facere fuga quibusdam beatae.
@@ -105,8 +105,8 @@ function Login() {
               </div>
             </div>
           </div>
-          <div className="h-full  flex flex-col items-center justify-center px-18 py-50 md:w-full lg:py-0">
-            <div className="w-full h-full  flex justif-center items-center bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+          <div className="h-full w-3/4 flex flex-col items-center justify-center mr-4 px-18 py-50 md:w-full lg:py-0">
+            <div className="w-full h-full flex justif-center items-center bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                   Login
@@ -174,8 +174,8 @@ function Login() {
                   </button>
                 </form>
                 <div className="flex justify-between">
-                  <Link to="/" className="underline text-black-500">
-                    Dont have an account yet?
+                  <Link to="/signup" className="underline text-black-500">
+                    Don't have an account yet?
                   </Link>
                   <Link to="/adminlogin" className="underline text-black-500">
                     Login as a Restaurant Owner

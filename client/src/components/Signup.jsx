@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const mockData = {
@@ -12,13 +12,13 @@ const mockData = {
 function Signup() {
   const navigate = useNavigate();
   const [customer, setCustomer] = useState(mockData);
-  const [customer, setStudent] = useState(mockData);
+  // const [customer, setStudent] = useState(mockData);
 
   function handleRegister(event) {
     event.preventDefault();
     console.log(customer);
 
-    fetch("/customers", {
+    // fetch("/customers", {
     fetch("/users", {
       method: "POST",
       headers: {
@@ -53,7 +53,7 @@ function Signup() {
       });
 
     setCustomer(mockData);
-    setStudent(mockData);
+    // setStudent(mockData);
   }
 
   const logoStyle = {
@@ -73,7 +73,7 @@ function Signup() {
     fontSize: "2rem",
     fontWeight: "bold",
     fontFamily: "serif",
-    marginRight: "0.5rem",
+    // marginRight: "0.5rem",
   };
 
   const yellowStyle = {
@@ -99,8 +99,8 @@ function Signup() {
       <div className="flex justify-between h-screen  px -10 py-12">
         <div div className="flex">
           {/* Content for the left box */}
-          <div className="w-3/4 bg-yellow-200 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 mx-4 flex items-center">
-            <div className=" px-18 py-50 md:w-full text-center">
+          <div className="h-full bg-yellow-500 opacity-75 justify-center md:w-3/4 sm:w-3/4 lg:w-full rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 mx-4 flex items-center">
+            <div className=" w-full h-full flex justify-center items-center px-18 py-50 md:w-full text-center m-4">
               <div className="text-center">
                 <h1 className="text-black font-bold text-5xl mb-16">
                   Join Us Now!!
@@ -121,16 +121,10 @@ function Signup() {
               </div>
             </div>
           </div>
-          <div className="h-full flex flex-col items-center justify-center px-18 py-50  md:w-full lg:py-0">
-            <div
-              className=" w-full h-full flex justify-center items-center bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0"
-              style={{ padding: "40px" }}
-            >
-              <div
-                className="p-6 space-y-4 md:space-y-6 sm:p-8 w-full"
-                style={{ width: "100%", maxWidth: "700px" }}
-              >
-                <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+          <div className="w-3/4 h-full flex flex-col items-center justify-center px-18 py-50  md:w-full lg:py-0 mr-6">
+            <div className=" w-full h-full flex justify-center items-center bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0" style={{ padding: "40px" }}>
+              <div  className="p-6 space-y-4 md:space-y-6 sm:p-8 w-full"  style={{ width: "100%", maxWidth: "700px" }}>
+                <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl justify-center items-center">
                   Create Account
                 </h1>
                 <form
@@ -147,18 +141,15 @@ function Signup() {
                       type="text"
                       name="username"
                       id="username"
-                      placeholder="Username"
+                      placeholder="username"
                       value={customer.username}
-                      onChange={(event) =>
-                        setCustomer((prevState) => ({
-
-                        setStudent((prevState) => ({
-                          ...prevState,
-                          username: event.target.value,
-                        }))
-                      }
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
                       required
+                      onChange={(event) =>
+                        setCustomer((prevState) => ({
+                          ...prevState,
+                          username: event.target.value
+                      }))}
                     />
                   </div>
                   <div className="flex flex-col">
@@ -170,11 +161,10 @@ function Signup() {
                       type="email"
                       name="email"
                       id="email"
-                      placeholder="Email"
+                      placeholder="email"
                       value={customer.email}
                       onChange={(event) =>
                         setCustomer((prevState) => ({
-                        setStudent((prevState) => ({
                           ...prevState,
                           email: event.target.value,
                         }))
@@ -196,7 +186,7 @@ function Signup() {
                       value={customer.password}
                       onChange={(event) =>
                         setCustomer((prevState) => ({
-                        setStudent((prevState) => ({
+                        // setStudent((prevState) => ({
                           ...prevState,
                           password: event.target.value,
                         }))
@@ -214,11 +204,11 @@ function Signup() {
                       type="password"
                       name="confirm_password"
                       id="confirm_password"
-                      placeholder="Confirm Password"
+                      placeholder="confirm password"
                       value={customer.confirm_password}
                       onChange={(event) =>
                         setCustomer((prevState) => ({
-                        setStudent((prevState) => ({
+                        // setStudent((prevState) => ({
                           ...prevState,
                           confirm_password: event.target.value,
                         }))
@@ -234,6 +224,11 @@ function Signup() {
                     Register account
                   </button>
                 </form>
+                <div className="flex justify-between">
+                  <Link to="/adminsignup" className="hover:underline text-black-500">
+                    Sign up as a Restaurant Owner
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
