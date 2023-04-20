@@ -15,7 +15,7 @@ function Landing() {
   };
 
   const contentStyle = {
-    padding: "2rem",
+    padding: "3.5rem",
     textAlign: "center",
     display: "flex",
     flexDirection: "column",
@@ -39,7 +39,7 @@ function Landing() {
     fontSize: "2rem",
     fontWeight: "bold",
     fontFamily: "serif",
-    marginRight: "0.5rem"
+    // marginRight: "0.5rem"
   };
 
   const yellowStyle = {
@@ -56,21 +56,21 @@ function Landing() {
         <span style={yellowStyle}>Eats</span>
       </div>
       <div style={contentStyle}>
-        <p className="text-2xl text-black">
+        <p className="text-4xl font-bold text-yellow-500">
           We are giving your hunger new option, AfriEats is what you deserve.
         </p>
         <div className="flex justify-center mt-10 gap-8">
           <a
             href="/login"
-            className="bg-yellow-500 hover:bg-blue-700 text-blue-700 hover:text-white font-bold py-2 px-10 rounded-full border-2 border-white"
+            className="hover:bg-yellow-500 hover:border-none transition-all duration-500 text-yellow-500 hover:text-white font-bold py-2 px-10 rounded-full border border-white"
           >
             Login
           </a>
           <a
             href="/signup"
-            className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-10 rounded-full"
+            className="bg-yellow-500 hover:bg-transparent transition-all duration-500 hover:text-yellow-500 hover:border text-white font-bold py-2 px-10 rounded-full"
           >
-            Signup
+            Sign Up
           </a>
         </div>
       </div>
