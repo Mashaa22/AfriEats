@@ -93,8 +93,10 @@ function Signup() {
       }}
     >
       <div style={logoStyle}>
-        <span style={whiteStyle}>Afri</span>
-        <span style={yellowStyle}>Eats</span>
+        <Link to="/" className="hover:cursor-pointer">
+          <span style={whiteStyle}>Afri</span>
+          <span style={yellowStyle}>Eats</span>
+        </Link>
       </div>
       <div className="flex justify-between h-screen  px -10 py-12">
         <div div className="flex">
@@ -224,9 +226,12 @@ function Signup() {
                     Register account
                   </button>
                 </form>
-                <div className="flex justify-between">
+                <div className="flex flex-col-reverse items-center justify-between">
                   <Link to="/adminsignup" className="hover:underline text-black-500">
                     Sign up as a Restaurant Owner
+                  </Link>
+                  <Link to="/login" className=" m-2 hover:underline text-black-500">
+                    Already have an account? Login
                   </Link>
                 </div>
               </div>

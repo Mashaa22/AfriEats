@@ -1,7 +1,10 @@
 import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { GiPadlock } from "react-icons/gi";
+import { RiAccountCircleFill } from "react-icons/ri";
 import { AdminContext } from "../App";
+import { GoKey } from "react-icons/go";
 
 // Mock data
 const mockData = {
@@ -86,16 +89,18 @@ function AdminLogin() {
       }}
     >
       <div style={logoStyle}>
-        <span style={whiteStyle}>Afri</span>
-        <span style={yellowStyle}>Eats</span>
+        <Link to="/" className="hover:cursor-pointer">
+          <span style={whiteStyle}>Afri</span>
+          <span style={yellowStyle}>Eats</span>
+        </Link>
       </div>
-      <div className="flex justify-between h-screen  px -10 py-12">
+      <div className="flex justify-between h-screen py-12">
         <div div className="flex">
           {/* Content for the left box */}
           <div className="md:w-3/4 sm:w-3/4 lg:w-full bg-yellow-500 opacity-75 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 mx-4 flex items-center">
-            <div className="mx-auto text-center m-4">
-              <div className="text-center m-4">
-                <h1 className="text-black font-bold text-5xl mb-16">
+            <div className=" h-full flex justify-center items-center mx-auto text-center">
+              <div className="text-center">
+                <h1 className="text-black font-bold text-4xl mb-16">
                   Welcome Back!
                 </h1>
                 <p className="text-white mb-16">
@@ -109,76 +114,95 @@ function AdminLogin() {
               </div>
             </div>
           </div>
-          <div className="w-3/4 h-full flex flex-col items-center justify-center px-18 py-50  md:w-full lg:py-0 mr-6">
-            <div className="w-full h-full  flex justify-center items-center bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 " style={{ padding: "40px" }}>
+          <div className="h-full w-3/4 flex flex-col items-center justify-center mr-4 px-18 py-50 lg:py-0">
+            <div className="w-full h-full flex justify-center items-center bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8 w-full"  style={{ width: "100%", maxWidth: "700px" }}>
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                    Admin Login
                 </h1>
                 <form
-                  className="grid grid-cols-1 gap-3"
+                  className="space-y-4 md:space-y-6"
                   onSubmit={handleLogin}
-                  style={{maxWidth: "700px"}}
                 >
-                  <div className="flex flex-col">
+                  
+                  <div >
                     <label
-                      className="mb-2 text-sm font-medium text-gray-900"
-                      htmlFor="email"
-                    ></label>
-                    <input
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
-                      type="email"
-                      id="email"
-                      value={login.username}
-                      placeholder="username"
-                      onChange={(event) =>
-                        setLogin((prevState) => ({
-                          ...prevState,
-                          email: event.target.value,
-                        }))
-                      }
-                      required
-                    />
+                      className="block mb-2 text-sm font-medium text-gray-900"
+                      htmlFor="username"
+                    >Username</label>
+                    <div className="flex flex-row items-center">
+
+                      <div className="py-2.5 mr-1 px-3 border border-black rounded-lg">
+                        <RiAccountCircleFill />
+                      </div>
+
+                      <input
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
+                        type="text"
+                        id="username"
+                        value={login.username}
+                        placeholder="username"
+                        onChange={(event) =>
+                          setLogin((prevState) => ({
+                            ...prevState,
+                            email: event.target.value,
+                          }))
+                        }
+                        required
+                      />
+                    </div>
                   </div>
-                  <div className="flex flex-col">
+                
+                  <div>
                     <label
                       className="mb-2 text-sm font-medium text-gray-900"
                       htmlFor="password"
-                    ></label>
-                    <input
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
-                      type="password"
-                      id="password"
-                      placeholder="password"
-                      value={login.password}
-                      onChange={(event) =>
-                        setLogin((prevState) => ({
-                          ...prevState,
-                          password: event.target.value,
-                        }))
-                      }
-                      required
-                    />
+                    >Password</label>
+                    <div className="flex flex-row items-center">
+                      <div className="py-2.5 mr-1 px-3 border border-black rounded-lg">
+                        <GiPadlock />
+                      </div>
+                      <input
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
+                        type="password"
+                        id="password"
+                        placeholder="password"
+                        value={login.password}
+                        onChange={(event) =>
+                          setLogin((prevState) => ({
+                            ...prevState,
+                            password: event.target.value,
+                          }))
+                        }
+                        required
+                      />
+                    </div>
                   </div>
-                  <div className="flex flex-col">
+
+                  <div>
                     <label
                       className="mb-2 text-sm font-medium text-gray-900"
                       htmlFor="password"
-                    ></label>
-                    <input
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
-                      type="pin"
-                      id="pin"
-                      placeholder="pin"
-                      value={login.pin}
-                      onChange={(event) =>
-                        setLogin((prevState) => ({
-                          ...prevState,
-                          pin: event.target.value,
-                        }))
-                      }
-                      required
-                    />
+                    >Pin</label>
+                    <div className="flex flex-row items-center">
+                      <div className="py-2.5 mr-1 px-3 border border-black rounded-lg">
+                        <GoKey />
+                      </div>
+                      <input
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
+                        type="pin"
+                        id="pin"
+                        placeholder="pin"
+                        value={login.pin}
+                        onChange={(event) =>
+                          setLogin((prevState) => ({
+                            ...prevState,
+                            pin: event.target.value,
+                          }))
+                        }
+                        required
+                      />
+                    </div>
                   </div>
                   <button
                     type="submit"
@@ -186,18 +210,25 @@ function AdminLogin() {
                   >
                     Login
                   </button>
-                  <div className="mt-4 text-center flex  flex-col justify-between">
-                    <Link
-                      className="text-black-500 hover:underline"
-                      to="/adminsignup "
-                    > 
-                      <span className="text-black">
-                        Don't have an account?{" "} Sign up
-                      </span>
-                    </Link>
-                    {/* <Link to="/" className="underline text-black-500">
-                      Homepage
-                    </Link> */}
+                  <div className="flex flex-col-reverse">
+                    <div className="mt-4 text-center flex flex-col justify-between">
+                      <Link
+                        className="text-black-500 hover:underline"
+                        to="/adminsignup "
+                      > 
+                        <span className="text-black">
+                          Don't have an account?{" "} Sign up
+                        </span>
+                      </Link>
+                      {/* <Link to="/" className="underline text-black-500">
+                        Homepage
+                      </Link> */}
+                    </div>
+                    <div className="mt-4 text-center flex flex-col justify-between">
+                      <Link to="/login" className="text-black hover:underline">
+                        Login as a customer
+                      </Link>
+                    </div>
                   </div>
                 </form>
               </div>

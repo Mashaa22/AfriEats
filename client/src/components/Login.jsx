@@ -81,13 +81,15 @@ function Login() {
       }}
     >
       <div style={logoStyle}>
-        <span style={whiteStyle}>Afri</span>
-        <span style={yellowStyle}>Eats</span>
+        <Link to="/" className="hover:cursor-pointer">
+          <span style={whiteStyle}>Afri</span>
+          <span style={yellowStyle}>Eats</span>
+        </Link>
       </div>
-      <div className="flex justify-between h-screen px -10 py-12">
+      <div className="flex justify-between h-screen py-12">
         <div div className="flex ">
           {/* Content for the left box */}
-          <div className="md:w-3/4 sm:w-3/4 h-full bg-yellow-500 opacity-75 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 mx-4 flex items-center">
+          <div className="md:w-3/4 sm:w-3/4 lg:w-full bg-yellow-500 opacity-75 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 mx-4 flex items-center">
             <div className="h-full flex justify-center items-center mx-auto text-center">
               <div className="text-center">
                 <h1 className="text-black font-bold text-4xl mb-16">
@@ -106,7 +108,7 @@ function Login() {
             </div>
           </div>
           <div className="h-full w-3/4 flex flex-col items-center justify-center mr-4 px-18 py-50 md:w-full lg:py-0">
-            <div className="w-full h-full flex justif-center items-center bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0">
+            <div className="w-full h-full flex justify-center items-center bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                   Login
@@ -116,7 +118,7 @@ function Login() {
                     <label
                       htmlFor="email"
                       className="block mb-2 text-sm font-medium text-gray-900"
-                    ></label>
+                    >Username</label>
                     <div className="flex flex-row items-center">
                       <div className="py-2.5 mr-1 px-3 border border-black rounded-lg">
                         <RiAccountCircleFill />
@@ -173,11 +175,11 @@ function Login() {
                     Login
                   </button>
                 </form>
-                <div className="flex justify-between">
-                  <Link to="/signup" className="underline text-black-500">
+                <div className="flex flex-col-reverse">
+                  <Link to="/signup" className=" m-2 hover:underline text-black-500">
                     Don't have an account yet?
                   </Link>
-                  <Link to="/adminlogin" className="underline text-black-500">
+                  <Link to="/adminlogin" className=" m-2 hover:underline text-black-500">
                     Login as a Restaurant Owner
                   </Link>
                 </div>
