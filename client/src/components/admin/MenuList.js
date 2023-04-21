@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { TrashFill, PenFill } from "react-bootstrap-icons";
 import "./MenuList.css";
 
 function MenuList(){
     return(
-        <div>
+        <div className='menu-options'>
             <div className='title'>
                 <h5>Menu Options</h5>
             </div>
@@ -29,10 +30,10 @@ function MenuList(){
                             <td>Kfc</td>
                             <td>$40</td>
                             <td className='action'>
-                                <Link to='/edit-menu'>
-                                    <span class="material-symbols-outlined">border_color</span>
+                                <span><Link to='/edit-menu'>
+                                    <PenFill/>
                                 </Link>
-                                <span class="material-symbols-outlined">delete</span>
+                                <TrashFill/></span>
                             </td>
                             <td>View Details</td>
                         </tr>

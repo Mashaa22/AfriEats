@@ -3,7 +3,7 @@ import "./OrderDetails.css";
 
 function OrderDetails(){
     return(
-        <div>
+        <div className='order-details'>
             <div className='title'>
                 <h5>Order Details</h5>
                 <button className="btn btn-light btn-sm rounded-pill">Filter</button>

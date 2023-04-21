@@ -3,7 +3,7 @@ import "./RecentOrders.css";
 
 function RecentOrders(){
     return(
-        <div>
+        <div className='recent-orders'>
             <div className='title'>
                 <h5>Recent Orders</h5>
             </div>

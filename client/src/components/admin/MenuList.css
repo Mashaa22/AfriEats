@@ -1,9 +1,12 @@
+.menu-options{
+    background-color: #bdc6f567;
+}
 .menu-table{
     margin: 5vw;
+    margin-top: 3vw;
 }
 .title{
-    margin: 5vw;
-    margin-top: 0%;
+    padding-top: 2%;
 }   
 .head{
     background-color: #424141;
@@ -26,5 +29,7 @@ tbody img{
     border-radius: 50%;
 }
 .action span{
-    margin: 2px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
 }
