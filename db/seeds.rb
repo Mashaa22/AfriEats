@@ -1122,7 +1122,8 @@ Order.create([
         date_of_delivery: '17-08-2023',
         quantity: 2,
         price: 36
-    },{
+    },
+    {
         user_id: 10,
         meal_id: 48,
         status: 'Pending',
@@ -1143,3 +1144,29 @@ Order.create([
 ])
 
 puts '🍖♨️🔥🥩🥓🍳 Seeding Restaurants...'
+Restaurant.create([
+    {
+        admin_id: 1,
+        name: 'Chicken Inn',
+        image_url: 'https://chickeninn.co.ke/wp-content/uploads/2022/10/8352-Kenya-SBF-Double-Burger-It-Promo-OB-1000x3000HR.jpg',
+        chef_url: '',
+        chef_quote: '',
+        chef_name: ''
+    },
+    {
+        admin_id: 2,
+        name: 'KFC',
+        image_url: 'https://tb-static.uber.com/prod/image-proc/processed_images/56d71cd09fd611cf1b86d58bd1ded6ca/5954bcb006b10dbfd0bc160f6370faf3.jpeg',
+        chef_url: '',
+        chef_quote: '',
+        chef_name: ''
+    },
+    {
+        admin_id: 1,
+        name: 'Pizza Inn',
+        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/5351-Kenya-Facebook-Images-315x828LR2.jpg',
+        chef_url: '',
+        chef_quote: '',
+        chef_name: ''
+    },
+])
