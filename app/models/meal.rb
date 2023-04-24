@@ -1,6 +1,4 @@
 class Meal < ApplicationRecord
-  has_many :orders
   belongs_to :restaurant
-  belongs_to :menu_option
+  belongs_to :menu_options
 end
-

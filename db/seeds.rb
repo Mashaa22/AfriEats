@@ -38,49 +38,81 @@ User.create([
     }
 ])
 
-# puts '🍔  Seeding Menuoptions...'
-# Menuoption.create!([
-#     {
-#         # restaurant_id: 1,
-#         # menuoptions_id: 1,
-#         name: '1 Chicken and Crispy Deal',
-#         price: 250,
-#         description: '1 Chicken piece served either in Original Recipe or Hot and Crispy',
-#         image_url: 'https://ontabee.s3.amazonaws.com/kfc-kenya/item/BWrIQuXPbaeAZCoJ.jpg',
-#     },
-#     {
-#         # restaurant_id: 1,
-#         # menuoptions_id: 2,
-#         name: '9 Chicken Pieces Crispy Deal',
-#         price: 1950,
-#         description: '9 Chicken pieces served either in Original Recipe or Hot and Crispy',
-#         image_url: 'https://ontabee.s3.amazonaws.com/kfc-kenya/item/ntR2Ptdjv19ZfIf0.jpg',
-#     },
-#     {
-#         # restaurant_id: 2,
-#         # menuoptions_id: 1,
-#         name: 'Full chicken',
-#         price: 1000,
-#         description: 'Rotisserie Full Chicken',
-#         image_url: 'https://tb-static.uber.com/prod/image-proc/processed_images/d4629599f434b6130bf8bab89b977eef/5954bcb006b10dbfd0bc160f6370faf3.jpeg',
-#     },
-#     {
-#         # restaurant_id: 2,
-#         # menuoptions_id: 2,
-#         name: '1/2 chicken',
-#         price: 500,
-#         description: 'Rotisserie 1/2 Chicken',
-#         image_url: 'https://tb-static.uber.com/prod/image-proc/processed_images/d4629599f434b6130bf8bab89b977eef/5954bcb006b10dbfd0bc160f6370faf3.jpeg',
-#     },
-#     {
-#         # restaurant_id: 3,
-#         # menuoptions_id: 1,
-#         name: 'Regular Hawaiian',
-#         price: 500,
-#         description: 'Classic Pizza Macon and Pineapple',
-#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-#     },
-# ])
+puts '♨️  Seeding Restaurants...'
+Restaurant.create([
+    {
+        id: 1,
+        admin_id: 1,
+        name: 'Chicken Inn',
+        image_url: 'https://chickeninn.co.ke/wp-content/uploads/2022/10/8352-Kenya-SBF-Double-Burger-It-Promo-OB-1000x3000HR.jpg',
+        chef_url: '',
+        chef_quote: '',
+        chef_name: ''
+    },
+    {
+        id: 2,
+        admin_id: 2,
+        name: 'KFC',
+        image_url: 'https://tb-static.uber.com/prod/image-proc/processed_images/56d71cd09fd611cf1b86d58bd1ded6ca/5954bcb006b10dbfd0bc160f6370faf3.jpeg',
+        chef_url: '',
+        chef_quote: '',
+        chef_name: ''
+    },
+    {
+        id: 3,
+        admin_id: 3,
+        name: 'Pizza Inn',
+        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/5351-Kenya-Facebook-Images-315x828LR2.jpg',
+        chef_url: '',
+        chef_quote: '',
+        chef_name: ''
+    }
+])
+
+puts '🍔  Seeding Menuoptions...'
+Menuoption.create!([
+    {
+        restaurant_id: 1,
+        # menuoptions_id: 1,
+        name: '1 Chicken and Crispy Deal',
+        price: 250,
+        description: '1 Chicken piece served either in Original Recipe or Hot and Crispy',
+        image_url: 'https://ontabee.s3.amazonaws.com/kfc-kenya/item/BWrIQuXPbaeAZCoJ.jpg',
+    },
+    {
+        restaurant_id: 1,
+        # menuoptions_id: 2,
+        name: '9 Chicken Pieces Crispy Deal',
+        price: 1950,
+        description: '9 Chicken pieces served either in Original Recipe or Hot and Crispy',
+        image_url: 'https://ontabee.s3.amazonaws.com/kfc-kenya/item/ntR2Ptdjv19ZfIf0.jpg',
+    },
+    {
+        restaurant_id: 2,
+        # menuoptions_id: 1,
+        name: 'Full chicken',
+        price: 1000,
+        description: 'Rotisserie Full Chicken',
+        image_url: 'https://tb-static.uber.com/prod/image-proc/processed_images/d4629599f434b6130bf8bab89b977eef/5954bcb006b10dbfd0bc160f6370faf3.jpeg',
+    },
+    {
+        restaurant_id: 2,
+        # menuoptions_id: 2,
+        name: '1/2 chicken',
+        price: 500,
+        description: 'Rotisserie 1/2 Chicken',
+        image_url: 'https://tb-static.uber.com/prod/image-proc/processed_images/d4629599f434b6130bf8bab89b977eef/5954bcb006b10dbfd0bc160f6370faf3.jpeg',
+    },
+    {
+        restaurant_id: 3,
+        # menuoptions_id: 1,
+        name: 'Regular Hawaiian',
+        price: 500,
+        description: 'Classic Pizza Macon and Pineapple',
+        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+    },
+])
+
 
 puts '🍕 Seeding Meals...'
 Meal.create!([
@@ -311,33 +343,6 @@ Order.create([
     }
 ])
 
-puts '♨️  Seeding Restaurants...'
-Restaurant.create([
-    {
-        admin_id: 1,
-        name: 'Chicken Inn',
-        image_url: 'https://chickeninn.co.ke/wp-content/uploads/2022/10/8352-Kenya-SBF-Double-Burger-It-Promo-OB-1000x3000HR.jpg',
-        chef_url: '',
-        chef_quote: '',
-        chef_name: ''
-    },
-    {
-        admin_id: 2,
-        name: 'KFC',
-        image_url: 'https://tb-static.uber.com/prod/image-proc/processed_images/56d71cd09fd611cf1b86d58bd1ded6ca/5954bcb006b10dbfd0bc160f6370faf3.jpeg',
-        chef_url: '',
-        chef_quote: '',
-        chef_name: ''
-    },
-    {
-        admin_id: 1,
-        name: 'Pizza Inn',
-        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/5351-Kenya-Facebook-Images-315x828LR2.jpg',
-        chef_url: '',
-        chef_quote: '',
-        chef_name: ''
-    }
-])
 
 puts "👥 Seeding Admins..."
 Admin.create([
