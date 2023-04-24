@@ -5,6 +5,7 @@ class CreateAdmins < ActiveRecord::Migration[7.0]
       t.string :email
       t.string :password_digest
       t.string :image
+      t.string :pin
 
       t.timestamps
     end

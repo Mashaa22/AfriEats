@@ -1,51 +1,52 @@
-class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show update destroy ]
+class AdminsController < ApplicationController
+  before_action :set_admin, only: %i[ show update destroy ]
 
-  # GET /users
+  # GET /admins
   def index
-    @users = User.all
+    @admins = Admin.all
 
-    render json: @users
+    render json: @admins
   end
 
-  # GET /users/1
+  # GET /admins/1
   def show
-    render json: @user
+    render json: @admin
   end
 
-  # POST /users
+  # POST /admins
   def create
-    @user = User.new(user_params)
+    @admin = Admin.new(admin_params)
 
-    if @user.save
-      render json: @user, status: :created, location: @user
+    if @admin.save
+      render json: @admin, status: :created, location: @admin
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: @admin.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /users/1
+  # PATCH/PUT /admins/1
   def update
-    if @user.update(user_params)
-      render json: @user
+    if @admin.update(admin_params)
+      render json: @admin
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: @admin.errors, status: :unprocessable_entity
     end
   end
 
-  # DELETE /users/1
+  # DELETE /admins/1
   def destroy
-    @user.destroy
+    @admin.destroy
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
+    def set_admin
+      @admin = Admin.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
-    def user_params
-      params.permit(:username, :email, :password, :image)
+    def admin_params
+      params.require(:admin).permit(:username, :email, :password, :pin)
+
     end
 end

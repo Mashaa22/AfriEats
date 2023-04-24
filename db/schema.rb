@@ -10,31 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_24_164941) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "password_digest"
     t.string "image"
+    t.string "pin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "meals", force: :cascade do |t|
-    t.integer "restaurant_id", null: false
-    t.integer "menu_options_id", null: false
+    t.bigint "restaurant_id", null: false
+    t.bigint "menuoptions_id", null: false
     t.string "name"
     t.integer "price"
     t.string "description"
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["menu_options_id"], name: "index_meals_on_menu_options_id"
+    t.index ["menuoptions_id"], name: "index_meals_on_menuoptions_id"
     t.index ["restaurant_id"], name: "index_meals_on_restaurant_id"
   end
 
   create_table "menuoptions", force: :cascade do |t|
-    t.integer "restaurant_id", null: false
+    t.bigint "restaurant_id", null: false
     t.string "name"
     t.integer "price"
     t.string "description"
@@ -45,8 +49,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_164941) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "meal_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "meal_id", null: false
     t.string "status"
     t.string "address"
     t.text "date_of_delivery"
@@ -59,7 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_164941) do
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.integer "admin_id", null: false
+    t.bigint "admin_id", null: false
     t.string "name"
     t.string "image_url"
     t.string "chef_url"
@@ -79,7 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_164941) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "meals", "menu_options", column: "menu_options_id"
+  add_foreign_key "meals", "menuoptions", column: "menuoptions_id"
   add_foreign_key "meals", "restaurants"
   add_foreign_key "menuoptions", "restaurants"
   add_foreign_key "orders", "meals"
