@@ -30,7 +30,7 @@ function Signup() {
               icon: "success",
               timer: 2000,
             });
-            setTimeout(() => navigate("/"), 1000);
+            setTimeout(() => navigate("/login"), 1000);
           });
         } else {
           Swal.fire({
@@ -93,10 +93,10 @@ function Signup() {
       }}
     >
       <div style={logoStyle}>
-        <Link to="/" className="hover:cursor-pointer">
+        {/* <Link to="/" className="hover:cursor-pointer">
           <span style={whiteStyle}>Afri</span>
           <span style={yellowStyle}>Eats</span>
-        </Link>
+        </Link> */}
       </div>
       <div className="flex justify-between h-screen  px -10 py-12">
         <div div className="flex">

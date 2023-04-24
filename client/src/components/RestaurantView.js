@@ -1,5 +1,5 @@
 import Slides from "./Slides";
-import "./Order.css";
+import "./RestaurantView.css";
 
 function RestaurantView() {
     return (
@@ -51,7 +51,8 @@ function RestaurantView() {
   <br></br>
 
  
- <Slides />
+    <Slides />
+
 
         
       </div>

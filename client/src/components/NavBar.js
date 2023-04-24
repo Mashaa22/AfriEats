@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import{IoNotifications, IoCart, IoPersonCircleSharp} from 'react-icons/io5';
 
 import './NavBar.css';
@@ -10,7 +10,10 @@ function NavBar() {
      <nav>
       <div className="navbar__logo">
         <h1>
-          <b className='capital'>A</b>FRI<b className="navbar__logo-eats"><b className='capital'>E</b>ATS</b>
+        <Link to="/" className="custom-link" style={{ textDecoration: 'none', color: 'black', fontSize: '20px',    fontWeight: 'bold' }}>
+         <b className='capital'>A</b>FRI<b className="navbar__logo-eats"><b className='capital'>E</b>ATS</b>
+        </Link>
+
         </h1>
         
       </div>
@@ -36,7 +39,7 @@ function NavBar() {
           </li>
           <li>
             <NavLink
-              to="/About us"
+              to="/about"
               className="navbar__link"
               activeClassName="navbar__link--active"
             >
@@ -72,7 +75,7 @@ function NavBar() {
           </li>
           <li>
             <NavLink
-              to="/profile"
+              to="/order-history"
               className="navbar__link"
               activeClassName="navbar__link--active"
             >

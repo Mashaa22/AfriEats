@@ -1,0 +1,40 @@
+.about-us-container {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    text-align: center;
+    color: #333;
+  }
+  
+  h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2e2e2c;
+  }
+  
+  h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #2e2e2c;
+  }
+  
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  a {
+    color: #2e2e2c;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

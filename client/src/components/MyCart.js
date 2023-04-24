@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import "./MyCart.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -52,8 +53,8 @@ function MyCart (){
                             <td className='quantity'>
                                     <div className="input-group">
                                     <span className="input-group-btn">
-                                        <button type="button" id='quantity-btn' onClick={increaseNum} className="quantity-left-minus btn btn-number btn-sm"  data-type="plus" data-field="">
-                                            <span className="material-symbols-outlined">add</span>                                                                                              
+                                    <button type="button" id='quantity-btn' onClick={decreaseNum} className="quantity-right-plus btn btn-number  btn-sm" data-type="minus" data-field="">
+                                            <span className="material-symbols-outlined">remove</span>
                                         </button>
                                     </span>
                                     <input 
@@ -64,8 +65,8 @@ function MyCart (){
                                         value={num}
                                         onChange={handleChange}/>
                                     <span className="input-group-btn">
-                                        <button type="button" id='quantity-btn' onClick={decreaseNum} className="quantity-right-plus btn btn-number  btn-sm" data-type="minus" data-field="">
-                                            <span className="material-symbols-outlined">remove</span>
+                                    <button type="button" id='quantity-btn' onClick={increaseNum} className="quantity-left-minus btn btn-number btn-sm"  data-type="plus" data-field="">
+                                            <span className="material-symbols-outlined">add</span>                                                                                              
                                         </button>
                                     </span>
                                     </div>
@@ -88,7 +89,9 @@ function MyCart (){
                     <h6>Cart Total</h6>
                     <p><span>Total: $</span>53</p>
                     <hr></hr>
+                    <Link to="/order">
                     <button className='btn btn-warning btn-sm rounded'>Checkout:$<span>53</span></button>
+                    </Link>
                 </div>
             </div>
         </div>

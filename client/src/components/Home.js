@@ -36,6 +36,7 @@ function Home() {
             <div className="restaurant-image" ><Link to="/restaurant-views"><img className= "img" src={Nandos}alt='nandos'></img></Link></div>      
         </div>
         <div className='icon'>
+          
         <h2> Best of AfriEats</h2>
         <Link to="/Meals"> <FaLongArrowAltRight size={50}color="black" /></Link>
 
@@ -62,7 +63,13 @@ function Home() {
         />
          </div>
         </div>
-    </div>    
+       
+
+    </div>
+    
+
+        
+      
     </>
   )
 }

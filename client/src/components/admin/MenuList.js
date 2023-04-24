@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { TrashFill, PenFill } from "react-bootstrap-icons";
 import "./MenuList.css";
 
 function MenuList(){
+    const [menuOptions, setMenuOptions] = useState();
+
+    //get menu options
+    useEffect(() => {
+        fetch("/menuoptions")
+        .then(res => res.json())
+        .then(response => {
+        setMenuOptions(response)
+        })
+    }, [])
+
+    //delete menu option
+    const handleDelete=(e)=>{
+        e.preventDefault();
+        fetch(`/menuoptions/id`, {
+            method: "DELETE",
+        })
+        .then((data) => {
+        alert("successfully deleted");
+        });
+    }
     return(
         <div className='menu-options'>
             <div className='title'>
                 <h5>Menu Options</h5>
             </div>
             <div className="table-responsive menu-table">
-                <table className="table table-hover">
+                <table className="table">
                     <thead>
                         <tr className='head'>
                             <th>Meal ID</th>
@@ -33,7 +54,9 @@ function MenuList(){
                                 <span><Link to='/edit-menu'>
                                     <PenFill/>
                                 </Link>
-                                <TrashFill/></span>
+                                <button type='delete' onClick={handleDelete}>
+                                <TrashFill/>
+                                </button></span>
                             </td>
                             <td>View Details</td>
                         </tr>

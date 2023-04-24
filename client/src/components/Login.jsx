@@ -87,10 +87,10 @@ function Login() {
       }}
     >
       <div style={logoStyle}>
-        <Link to="/home" className="hover:cursor-pointer">
+        {/* <Link to="/home" className="hover:cursor-pointer">
           <span style={whiteStyle}>Afri</span>
           <span style={yellowStyle}>Eats</span>
-        </Link>
+        </Link> */}
       </div>
       <div className="flex justify-between h-screen py-12">
         <div div className="flex ">
