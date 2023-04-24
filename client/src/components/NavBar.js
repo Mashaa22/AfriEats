@@ -10,7 +10,7 @@ function NavBar() {
      <nav>
       <div className="navbar__logo">
         <h1>
-        <Link to="/" className="custom-link" style={{ textDecoration: 'none', color: 'black', fontSize: '20px',    fontWeight: 'bold' }}>
+        <Link to="/" className="custom-link" style={{ textDecoration: 'none', color: 'white', fontSize: '20px', fontWeight: 'bold' }}>
          <b className='capital'>A</b>FRI<b className="navbar__logo-eats"><b className='capital'>E</b>ATS</b>
         </Link>
 

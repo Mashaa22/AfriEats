@@ -4,18 +4,17 @@ footer {
 
 .main{
     display: flex; 
-    
     flex-direction: column;
     /* align-content: flex-end; */
     background-color: #3e3d3d;
     color: white;
-    left:0;
+    /* left:0;
     bottom:0;
-    right:0;
+    right:0; */
   }
   .links{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-content: center;
     color: white;
     padding: 10px;

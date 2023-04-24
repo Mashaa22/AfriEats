@@ -34,27 +34,27 @@ function Landing() {
   };
   
 
-  const whiteStyle = {
-    color: "white",
-    fontSize: "2rem",
-    fontWeight: "bold",
-    fontFamily: "serif",
-    // marginRight: "0.5rem"
-  };
+  // const whiteStyle = {
+  //   color: "white",
+  //   fontSize: "2rem",
+  //   fontWeight: "bold",
+  //   fontFamily: "serif",
+  //   // marginRight: "0.5rem"
+  // };
 
-  const yellowStyle = {
-    color: "yellow",
-    fontSize: "2rem",
-    fontWeight: "bold",
-    fontFamily: "serif"
-  };
+  // const yellowStyle = {
+  //   color: "yellow",
+  //   fontSize: "2rem",
+  //   fontWeight: "bold",
+  //   fontFamily: "serif"
+  // };
 
   return (
     <div style={backgroundStyle}>
-      <div style={logoStyle}>
+      {/* <div style={logoStyle}>
         <span style={whiteStyle}>Afri</span>
         <span style={yellowStyle}>Eats</span>
-      </div>
+      </div> */}
       <div style={contentStyle}>
         <p className="text-4xl font-bold text-yellow-500">
           We are giving your hunger new option, AfriEats is what you deserve.
@@ -62,7 +62,7 @@ function Landing() {
         <div className="flex justify-center mt-10 gap-8">
           <a
             href="/login"
-            className="hover:bg-yellow-500 hover:border-none transition-all duration-500 text-yellow-500 hover:text-white font-bold py-2 px-10 rounded-full border border-white"
+            className="hover:bg-yellow-500 hover:border-none transition-all duration-500 text-white hover:text-white font-bold py-2 px-10 rounded-full border border-white"
           >
             Login
           </a>
