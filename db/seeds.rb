@@ -45,6 +45,7 @@ User.create([
     }
 ])
 
+puts "🛡️🛠️🔰  Seeding Admin..."
 Admin.create([
     {
         username: 'mercienyambura',
@@ -183,58 +184,58 @@ Menuoption.create!([
                       }
 ])
 
-puts '🍕 Seeding Meals...'
+# puts '🍕 Seeding Meals...'
 
-Meal.create!([
-    {
-        restaurant_id: 1,
-        menuoptions_id: 1,
-        name: 'Large Chicken Feast',
-        price: 1100,
-        description: 'Supreme Pizza Chicken Tikka, Peri-Peri Green Pepper, Onions, Sweetcorn, Mushroom, Mozzarella',
-        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-    },
-    {
-        restaurant_id: 2,
-        menuoptions_id: 2,
-        name: 'Mega Chicken Feast',
-        price: 1350,
-        description: 'Supreme Pizza Chicken Tikka, Peri-Peri Green Pepper, Onions, Sweetcorn, Mushroom, Mozzarella',
-        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-    },
-    {
-        restaurant_id: 3,
-        menuoptions_id: 3,
-        name: 'Regular Nyama Feast',
-        price: 600,
-        description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
-        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-    },
-    {
-        restaurant_id: 4,
-        menuoptions_id: 4,
-        name: 'Medium Nyama Feast',
-        price: 850,
-        description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
-        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-    },
-    {
-        restaurant_id: 5,
-        menuoptions_id: 5,
-        name: 'Large Nyama Feast',
-        price: 1100,
-        description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
-        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-    },
-    {
-        restaurant_id: 6,
-        menuoptions_id: 6,
-        name: 'Mega Nyama Feast',
-        price: 1350,
-        description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
-        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-    }
-])
+# Meal.create!([
+#     {
+#         restaurant_id: 1,
+#         menuoptions_id: 1,
+#         name: 'Large Chicken Feast',
+#         price: 1100,
+#         description: 'Supreme Pizza Chicken Tikka, Peri-Peri Green Pepper, Onions, Sweetcorn, Mushroom, Mozzarella',
+#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+#     },
+#     {
+#         restaurant_id: 2,
+#         menuoptions_id: 2,
+#         name: 'Mega Chicken Feast',
+#         price: 1350,
+#         description: 'Supreme Pizza Chicken Tikka, Peri-Peri Green Pepper, Onions, Sweetcorn, Mushroom, Mozzarella',
+#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+#     },
+#     {
+#         restaurant_id: 3,
+#         menuoptions_id: 3,
+#         name: 'Regular Nyama Feast',
+#         price: 600,
+#         description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
+#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+#     },
+#     {
+#         restaurant_id: 4,
+#         menuoptions_id: 4,
+#         name: 'Medium Nyama Feast',
+#         price: 850,
+#         description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
+#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+#     },
+#     {
+#         restaurant_id: 5,
+#         menuoptions_id: 5,
+#         name: 'Large Nyama Feast',
+#         price: 1100,
+#         description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
+#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+#     },
+#     {
+#         restaurant_id: 6,
+#         menuoptions_id: 6,
+#         name: 'Mega Nyama Feast',
+#         price: 1350,
+#         description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
+#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+#     }
+# ])
 
 
 
