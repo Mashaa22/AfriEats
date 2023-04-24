@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { AiTwotoneMail } from "react-icons/ai";
+import { GiPadlock } from "react-icons/gi";
 import { GoKey } from "react-icons/go";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
@@ -205,7 +206,7 @@ setUser({
                     ></label>
                     <div className="flex flex-row items-center">
                       <div className="py-2.5 mr-1 px-3 border border-black rounded-lg">
-                        <GoKey />
+                        <GiPadlock />
                       </div>
                       <input
                         type="password"
@@ -231,7 +232,7 @@ setUser({
                     ></label>
                     <div className="flex flex-row items-center">
                       <div className="py-2.5 mr-1 px-3 border border-black rounded-lg">
-                       <GoKey />
+                       <GiPadlock />
                       </div>
                       <input
                         type="password"
