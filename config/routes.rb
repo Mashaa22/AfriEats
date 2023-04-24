@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :admins
   resources :users
 
-  post '/signup', to: 'users#create'
-  post '/signup', to: 'admins#create'
+  post '/user/signup', to: 'users#create'
+  post '/admin/signup', to: 'admins#create'
   post '/login', to: 'auths#create'
   delete '/logout', to: 'auths#destroy'
 

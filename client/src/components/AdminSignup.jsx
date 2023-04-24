@@ -6,21 +6,27 @@ import { RiAccountCircleFill } from "react-icons/ri";
 import { GiPadlock } from "react-icons/gi";
 import { GoKey } from "react-icons/go";
 
+// const sgMail = require('@sendgrid/mail')
+// sgMail.setApiKey(
+//   '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'
+// );
 
 function AdminSignup() {
   const [admin, setAdmin] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
+    pin:"",
   });
   const [isSignedUp, setIsSignedUp] = useState(false);
 
   const admins_params = () => {
     return {
       admin: {
-        name: admin.name,
+        username: admin.username,
         email: admin.email,
         password: admin.password,
+        pin: admin.pin
       },
     };
   };
@@ -29,7 +35,7 @@ function AdminSignup() {
     event.preventDefault();
     console.log({ admin });
     try {
-      const response = await fetch("/admins", {
+      const response = await fetch("/admin/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,11 +46,12 @@ function AdminSignup() {
       console.log("Success:", data);
       setIsSignedUp(true);
       setAdmin({
-        name: "",
+        username: "",
         email: "",
         password: "",
+        pin:"",
       });
-      window.location.href = "/"; // Navigate to admin dashboard page
+      window.location.href = "/adminlogin"; // Navigate to admin dashboard page
     } catch (error) {
       console.error("Error:", error);
     }
@@ -144,8 +151,8 @@ function AdminSignup() {
                     type="text"
                     id="username"
                     placeholder="username"
-                    value={admin.name}
-                    onChange={(e) => setAdmin({ ...admin, name: e.target.value })}
+                    value={admin.username}
+                    onChange={(e) => setAdmin({ ...admin, username: e.target.value })}
                     required
                   />
                 </div>
@@ -234,9 +241,9 @@ function AdminSignup() {
                     type="pin"
                     id="pin"
                     placeholder="pin"
-                    value={admin.password}
+                    value={admin.pin}
                     onChange={(e) =>
-                      setAdmin({ ...admin, password: e.target.value })
+                      setAdmin({ ...admin, pin: e.target.value })
                     }
                     required
                   />
@@ -271,3 +278,4 @@ function AdminSignup() {
 }
 
 export default AdminSignup;
+

@@ -12,36 +12,43 @@ function Login() {
     username: "",
     password: "",
   });
-  console.log("daisy");
+
   function handleLogin(event) {
     event.preventDefault();
 
-    // Mock data
-    const mockData = {
-      username: "daisy",
-      password: "password123",
-    };
-
-    // Check if the login credentials are correct
-    if (
-      login.username === mockData.username &&
-      login.password === mockData.password
-    ) {
-      setTimeout(() => navigate("/"), 1000);
-      setUser(true);
-    } else {
-      Swal.fire({
-        title: "Wrong password or username",
-        icon: "error",
-        timer: 2000,
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(login),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Invalid username or password");
+        }
+      })
+      .then((data) => {
+        const { token } = data;
+        localStorage.setItem("jwt", token);
+        setUser(true);
+        navigate("/home");
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: error.message,
+          icon: "error",
+          timer: 2000,
+        });
+      })
+      .finally(() => {
+        setLogin({
+          username: "",
+          password: "",
+        });
       });
-    }
-
-    // Clear the login form
-    setLogin({
-      username: "",
-      password: "",
-    });
   }
 
   const logoStyle = {
@@ -70,7 +77,6 @@ function Login() {
     fontWeight: "bold",
     fontFamily: "serif",
   };
-  console.log(setLogin);
   return (
     <section
       className="h-screen flex items-center justify-center"
@@ -81,7 +87,7 @@ function Login() {
       }}
     >
       <div style={logoStyle}>
-        <Link to="/" className="hover:cursor-pointer">
+        <Link to="/home" className="hover:cursor-pointer">
           <span style={whiteStyle}>Afri</span>
           <span style={yellowStyle}>Eats</span>
         </Link>
@@ -131,11 +137,11 @@ function Login() {
                         onChange={(event) =>
                           setLogin((prevState) => ({
                             ...prevState,
-                            admission_number: event.target.value,
+                            username: event.target.value,
                           }))
                         }
                         className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="daisy"
+                        placeholder="Username"
                         required
                       />
                     </div>

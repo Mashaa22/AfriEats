@@ -2,42 +2,39 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const mockData = {
-  username: "Daisy Jebby",
-  email: "jebby@gmail.com",
-  password: "mockPassword123",
-  id_number: "37521958"
-};
 
 function Signup() {
   const navigate = useNavigate();
-  const [customer, setCustomer] = useState(mockData);
-  // const [customer, setStudent] = useState(mockData);
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirm_password:""
+  });
 
   function handleRegister(event) {
     event.preventDefault();
-    console.log(customer);
-
-    // fetch("/customers", {
-    fetch("/users", {
+    fetch("/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ customer }),
+      body: JSON.stringify({ user }),
     })
       .then((res) => {
-        res.json();
         if (res.status === 201) {
-          Swal.fire({
-            title: "You have successfully registered the customer.",
-            icon: "success",
-            timer: 2000,
+          res.json().then((data) => {
+            localStorage.setItem("token", data.token);
+            Swal.fire({
+              title: "You have successfully registered the user.",
+              icon: "success",
+              timer: 2000,
+            });
+            setTimeout(() => navigate("/"), 1000);
           });
-          setTimeout(() => navigate("/"), 1000);
         } else {
           Swal.fire({
-            title: "There was an error creating the customer.",
+            title: "There was an error creating the user.",
             icon: "error",
             timer: 2000,
           });
@@ -46,14 +43,17 @@ function Signup() {
       .catch((err) => {
         console.error(err);
         Swal.fire({
-          title: "There was an error creating the customer.",
+          title: "There was an error creating the user.",
           icon: "error",
           timer: 2000,
         });
       });
-
-    setCustomer(mockData);
-    // setStudent(mockData);
+    setUser({
+      username: "",
+      email: "",
+      password: "",
+      confirm_password: "",
+    });
   }
 
   const logoStyle = {
@@ -144,11 +144,11 @@ function Signup() {
                       name="username"
                       id="username"
                       placeholder="username"
-                      value={customer.username}
+                      value={user.username}
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
                       required
                       onChange={(event) =>
-                        setCustomer((prevState) => ({
+                        setUser((prevState) => ({
                           ...prevState,
                           username: event.target.value
                       }))}
@@ -164,9 +164,9 @@ function Signup() {
                       name="email"
                       id="email"
                       placeholder="email"
-                      value={customer.email}
+                      value={user.email}
                       onChange={(event) =>
-                        setCustomer((prevState) => ({
+                        setUser((prevState) => ({
                           ...prevState,
                           email: event.target.value,
                         }))
@@ -185,10 +185,9 @@ function Signup() {
                       name="password"
                       id="password"
                       placeholder="password"
-                      value={customer.password}
+                      value={user.password}
                       onChange={(event) =>
-                        setCustomer((prevState) => ({
-                        // setStudent((prevState) => ({
+                        setUser((prevState) => ({
                           ...prevState,
                           password: event.target.value,
                         }))
@@ -207,9 +206,9 @@ function Signup() {
                       name="confirm_password"
                       id="confirm_password"
                       placeholder="confirm password"
-                      value={customer.confirm_password}
+                      value={user.confirm_password}
                       onChange={(event) =>
-                        setCustomer((prevState) => ({
+                        setUser((prevState) => ({
                         // setStudent((prevState) => ({
                           ...prevState,
                           confirm_password: event.target.value,

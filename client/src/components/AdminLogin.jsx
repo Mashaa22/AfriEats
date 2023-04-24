@@ -6,50 +6,52 @@ import { RiAccountCircleFill } from "react-icons/ri";
 import { AdminContext } from "../App";
 import { GoKey } from "react-icons/go";
 
-// Mock data
-const mockData = {
-  username: "jebby",
-  email: "admin@example.com",
-  password: "admin123",
-  pin: "ADMIN123",
-};
-
 function AdminLogin() {
-  const navigate = useNavigate();
-  const [admin, setAdmin] = useContext(AdminContext);
-  const [login, setLogin] = useState({
+    const navigate = useNavigate();
+    const [admin, setAdmin] = useContext(AdminContext);
+    const [login, setLogin] = useState({
     username: "",
-    email: "",
+    password: "",
+    pin: ""
+    });
+    
+    function handleLogin(event) {
+    event.preventDefault();
+    fetch("/login", {
+    method: "POST",
+    headers: {
+    "Content-Type": "application/json",
+    },
+    body: JSON.stringify(login),
+    })
+
+    .then((data) => {
+    localStorage.setItem("token", data.token);
+    setTimeout(() => navigate("/dashboard"), 1000);
+    setAdmin(true);
+    })
+    .then((res) => {
+      if (res.status === 200) {
+      return res.json();
+      } else if (res.status === 401) {
+      throw new Error("Wrong username, password or pin");
+      } else {
+      throw new Error("Something went wrong");
+      }
+      })
+    .catch((error) => {
+    Swal.fire({
+    title: error.message,
+    icon: "error",
+    timer: 2000,
+    });
+    });
+    setLogin({
+    username: "",
     password: "",
     pin: "",
-  });
-
-  function handleLogin(event) {
-    event.preventDefault();
-
-    // Check if the input matches the mock data
-    if (
-      login.email === mockData.email &&
-      login.password === mockData.password
-    ) {
-      setTimeout(() => navigate("/"), 1000);
-      setAdmin(true);
-    } else {
-      Swal.fire({
-        title: "Wrong password or email",
-        icon: "error",
-        timer: 2000,
-      });
-    }
-
-    // Reset the input fields
-    setLogin({
-      username: "",
-      email: "",
-      password: "",
-      pin: "",
     });
-  }
+    }
 
   const logoStyle = {
     position: "absolute",
@@ -77,7 +79,6 @@ function AdminLogin() {
     fontWeight: "bold",
     fontFamily: "serif",
   };
-  console.log(setLogin);
 
   return (
     <section
@@ -145,7 +146,7 @@ function AdminLogin() {
                         onChange={(event) =>
                           setLogin((prevState) => ({
                             ...prevState,
-                            email: event.target.value,
+                            username: event.target.value,
                           }))
                         }
                         required
