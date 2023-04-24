@@ -4,40 +4,29 @@ function Notification() {
     return (
       <div>
   
-   <div> 
-    <img src="./images/noitification.png" style={{ width: "100%", height: "200px", objectFit:"inherit" }} /> 
-    </div>
-<div style={{ textAlign: "center" }}>
+        <div> 
+          <img src="./images/noitification.png" style={{ width: "100%", height: "320px", objectFit:"inherit" }} /> 
+        </div>
+        <div style={{ textAlign: "center", marginTop: "20px" }}>
 
-<h3>GET YOUR LATEST UPDATES</h3>
+          <h3>GET YOUR LATEST UPDATES</h3>
 
-</div>
+        </div>
 
-<div class="card-notify" style={{width: "50%", marginTop:"20px", height:"300px"}}>
-   
-<div >
-    <ul >
-    <li>Kfc added Double Chicken to their menu</li>
-    <li>Chicken inn added Strawberry salad to their menu</li>
-   </ul>
+        <div class="card-notify" style={{width: "80%", marginTop:"40px", marginBottom: "40px", height:"300px"}}>
 
-   </div>
-   
-        
-   
+          <div >
+            <ul style={{listStyle: "inside"}}>
+              <li>Kfc added Double Chicken to their menu</li>
+              <li>Chicken inn added Strawberry salad to their menu</li>
+            </ul>
 
-    
-</div>
+          </div>
 
-
-  
- 
-
-
-        
+        </div>
       </div>
-    );
-  }
+  );
+}
   
-  export default Notification;
+export default Notification;
   
