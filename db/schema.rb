@@ -25,16 +25,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.bigint "restaurant_id", null: false
-    t.bigint "menuoptions_id", null: false
+    t.bigint "menuoption_id", null: false
     t.string "name"
     t.integer "price"
     t.string "description"
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["menuoptions_id"], name: "index_meals_on_menuoptions_id"
-    t.index ["restaurant_id"], name: "index_meals_on_restaurant_id"
+    t.index ["menuoption_id"], name: "index_meals_on_menuoption_id"
   end
 
   create_table "menuoptions", force: :cascade do |t|
@@ -50,7 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
 
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "meal_id", null: false
     t.string "status"
     t.string "address"
     t.text "date_of_delivery"
@@ -58,7 +55,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["meal_id"], name: "index_orders_on_meal_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -83,10 +79,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "meals", "menuoptions", column: "menuoptions_id"
-  add_foreign_key "meals", "restaurants"
+  add_foreign_key "meals", "menuoptions"
   add_foreign_key "menuoptions", "restaurants"
-  add_foreign_key "orders", "meals"
   add_foreign_key "orders", "users"
   add_foreign_key "restaurants", "admins"
 end

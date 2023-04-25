@@ -1,6 +1,6 @@
 class Restaurant < ApplicationRecord
   has_many :meals
-  has_many :menu_options
+  has_many :menuoptions
   
   belongs_to :admin
 end

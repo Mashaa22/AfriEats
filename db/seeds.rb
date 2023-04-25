@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 # puts '👥 Seeding Users...'
+
 User.create([
     {
         username: 'mercienyambura',
@@ -44,8 +45,9 @@ User.create([
         image: ''
     }
 ])
+puts '♨️ Seeded Users'
 
-puts "🛡️🛠️🔰  Seeding Admin..."
+
 Admin.create([
     {
         username: 'mercienyambura',
@@ -84,8 +86,9 @@ Admin.create([
         image: ''
     }
 ])
+puts '🔥 Seeded Admins...'
 
-puts '🍖♨️🔥🥩🥓🍳 Seeding Restaurants...'
+
 Restaurant.create([
     {
         admin_id: 1,
@@ -136,8 +139,9 @@ Restaurant.create([
         chef_name: 'Not Alex'
     },
 ])
+puts '🍖♨️🔥🥩🥓🍳 Seeded Restaurants...'
 
-puts '🍕 Seeding MenuOptions...'
+
 Menuoption.create!([
     {
   restaurant_id: 1,
@@ -183,67 +187,62 @@ Menuoption.create!([
                     image_url: ""
                       }
 ])
-
-# puts '🍕 Seeding Meals...'
-
-# Meal.create!([
-#     {
-#         restaurant_id: 1,
-#         menuoptions_id: 1,
-#         name: 'Large Chicken Feast',
-#         price: 1100,
-#         description: 'Supreme Pizza Chicken Tikka, Peri-Peri Green Pepper, Onions, Sweetcorn, Mushroom, Mozzarella',
-#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-#     },
-#     {
-#         restaurant_id: 2,
-#         menuoptions_id: 2,
-#         name: 'Mega Chicken Feast',
-#         price: 1350,
-#         description: 'Supreme Pizza Chicken Tikka, Peri-Peri Green Pepper, Onions, Sweetcorn, Mushroom, Mozzarella',
-#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-#     },
-#     {
-#         restaurant_id: 3,
-#         menuoptions_id: 3,
-#         name: 'Regular Nyama Feast',
-#         price: 600,
-#         description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
-#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-#     },
-#     {
-#         restaurant_id: 4,
-#         menuoptions_id: 4,
-#         name: 'Medium Nyama Feast',
-#         price: 850,
-#         description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
-#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-#     },
-#     {
-#         restaurant_id: 5,
-#         menuoptions_id: 5,
-#         name: 'Large Nyama Feast',
-#         price: 1100,
-#         description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
-#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-#     },
-#     {
-#         restaurant_id: 6,
-#         menuoptions_id: 6,
-#         name: 'Mega Nyama Feast',
-#         price: 1350,
-#         description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
-#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-#     }
-# ])
+puts '🍕 Seeded MenuOptions...'
 
 
 
-puts '📦 Seeding Orders...'
+Meal.create!([
+    {
+        
+        menuoption_id: 1,
+        name: 'Large Chicken Feast',
+        price: 1100,
+        description: 'Supreme Pizza Chicken Tikka, Peri-Peri Green Pepper, Onions, Sweetcorn, Mushroom, Mozzarella',
+        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+    },
+    {
+        menuoption_id: 2,
+        name: 'Mega Chicken Feast',
+        price: 1350,
+        description: 'Supreme Pizza Chicken Tikka, Peri-Peri Green Pepper, Onions, Sweetcorn, Mushroom, Mozzarella',
+        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+    },
+    {
+
+        menuoption_id: 3,
+        name: 'Regular Nyama Feast',
+        price: 600,
+        description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
+        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+    },
+    {
+        menuoption_id: 4,
+        name: 'Medium Nyama Feast',
+        price: 850,
+        description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
+        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+    },
+    {
+        menuoption_id: 5,
+        name: 'Large Nyama Feast',
+        price: 1100,
+        description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
+        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+    },
+    {
+        menuoption_id: 6,
+        name: 'Mega Nyama Feast',
+        price: 1350,
+        description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
+        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+    }
+])
+puts '🍕 Seeded Meals...'
+
+
 Order.create([
     {
         user_id: 1,
-        meal_id: 1,
         status: 'Pending',
         address: 'Kahawa sukari, opposite PCEA House 1234',
         date_of_delivery: '17-08-2023',
@@ -252,7 +251,6 @@ Order.create([
     },
     {
         user_id: 2,
-        meal_id: 1,
         status: 'Pending',
         address: 'Kahawa sukari, opposite PCEA House 1234',
         date_of_delivery: '17-08-2023',
@@ -261,7 +259,6 @@ Order.create([
     },
     {
         user_id: 3,
-        meal_id: 1,
         status: 'Pending',
         address: 'Kahawa sukari, opposite PCEA House 1234',
         date_of_delivery: '17-08-2023',
@@ -270,7 +267,6 @@ Order.create([
     },
     {
         user_id: 4,
-        meal_id: 1,
         status: 'Pending',
         address: 'Kahawa sukari, opposite PCEA House 1234',
         date_of_delivery: '17-08-2023',
@@ -279,7 +275,6 @@ Order.create([
     },
     {
         user_id: 1,
-        meal_id: 2,
         status: 'Pending',
         address: 'Kahawa sukari, opposite PCEA House 1234',
         date_of_delivery: '17-08-2023',
@@ -288,7 +283,6 @@ Order.create([
     },
     {
         user_id: 1,
-        meal_id: 3,
         status: 'Pending',
         address: 'Kahawa sukari, opposite PCEA House 1234',
         date_of_delivery: '17-08-2023',
@@ -297,7 +291,6 @@ Order.create([
     },
     {
         user_id: 2,
-        meal_id: 2,
         status: 'Pending',
         address: 'Kahawa sukari, opposite PCEA House 1234',
         date_of_delivery: '17-08-2023',
@@ -306,7 +299,6 @@ Order.create([
     },
     {
         user_id: 3,
-        meal_id: 2,
         status: 'Pending',
         address: 'Kahawa sukari, opposite PCEA House 1234',
         date_of_delivery: '17-08-2023',
@@ -315,7 +307,6 @@ Order.create([
     },
     {
         user_id: 3,
-        meal_id: 3,
         status: 'Pending',
         address: 'Kahawa sukari, opposite PCEA House 1234',
         date_of_delivery: '17-08-2023',
@@ -324,7 +315,6 @@ Order.create([
     },
     {
         user_id: 4,
-        meal_id: 2,
         status: 'Pending',
         address: 'Kahawa sukari, opposite PCEA House 1234',
         date_of_delivery: '17-08-2023',
@@ -333,12 +323,13 @@ Order.create([
     },
     {
         user_id: 4,
-        meal_id: 3,
         status: 'Pending',
         address: 'Kahawa sukari, opposite PCEA House 1234',
         date_of_delivery: '17-08-2023',
         quantity: 2,
         price: 36
     }
+
 ])
+puts '📦 Seeded Orders...'
 
