@@ -11,9 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "admins", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -25,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.bigint "menuoption_id", null: false
+    t.integer "menuoption_id", null: false
     t.string "name"
     t.integer "price"
     t.string "description"
@@ -36,7 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
   end
 
   create_table "menuoptions", force: :cascade do |t|
-    t.bigint "restaurant_id", null: false
+    t.integer "restaurant_id", null: false
     t.string "name"
     t.integer "price"
     t.string "description"
@@ -47,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.string "status"
     t.string "address"
     t.text "date_of_delivery"
@@ -59,7 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.bigint "admin_id", null: false
+    t.integer "admin_id", null: false
     t.string "name"
     t.string "image_url"
     t.string "chef_url"
