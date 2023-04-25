@@ -4,13 +4,17 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-
     render json: @users
   end
 
   # GET /users/1
   def show
-    render json: @user
+    @users = User.find_by(id: params[:id])
+    if @user
+      render json: @user.as_json(include: {orders: {only: [:id, :address, :date_of_delivery, :quantity, :price]}})
+    else
+      render json: { error: "User not found" } status: :not_found
+    end
   end
 
   # POST /users
@@ -35,7 +39,8 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
-    @user.destroy
+    @user.destroy_all
+    head :no_content
   end
 
   private
