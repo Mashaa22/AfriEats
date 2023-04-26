@@ -4,17 +4,13 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
+
     render json: @users
   end
 
   # GET /users/1
   def show
-    @users = User.find_by(id: params[:id])
-    if @user
-      render json: @user.as_json(include: {orders: {only: [:id, :address, :date_of_delivery, :quantity, :price]}})
-    else
-      render json: { error: "User not found" } status: :not_found
-    end
+    render json: @user
   end
 
   # POST /users
@@ -39,8 +35,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
-    @user.destroy_all
-    head :no_content
+    @user.destroy
   end
 
   private
@@ -51,6 +46,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.permit(:username, :email, :password, :image)
+      params.require(:user).permit(:username, :email, :password, :image)
     end
 end
