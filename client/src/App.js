@@ -1,4 +1,4 @@
-import { useEffect, useState, createContext } from "react";
+import { useEffect, useState, createContext, useNavigate } from "react";
 import React from 'react';
 import "./App.css";
 import Login from "./components/Login";
@@ -35,6 +35,7 @@ import MyCart from './components/MyCart';
 export const UserContext = createContext();
 export const AdminContext = createContext();
 
+
 function App() {
   const [user, setUser] = useState({});
   const [admin, setAdmin] = useState(false);
@@ -43,18 +44,37 @@ function App() {
   function setCurrentUser(currentUser) {
     setUser(currentUser);
     setLoggedIn(true);
+    if (currentUser.entity === 'admin') {
+      setAdmin(true);
+    }
   }
 
-  function logOut() {
-    setUser({});
-    setAdmin(false);
-    setLoggedIn(false);
-    localStorage.token = '';
+  function Logout() {
+    const navigate = useNavigate();
+  
+    function handleClick() {
+      localStorage.token = '';
+      navigate('/');
+    }
+  
+    return (
+      <button onClick={handleClick}>
+        Logout
+      </button>
+    );
   }
+  // function logOut() {
+  //   setUser({});
+  //   setAdmin(false);
+  //   setLoggedIn(false);
+  //   localStorage.removeItem("token");
+    
+  // }
 
   useEffect(() => {
-    const token = localStorage.token;
-    if (typeof token !== 'undefined' && token.length > 1 && token !== 'undefined') {
+    const token = localStorage.getItem("token");
+  
+    if (token) {
       fetch('/auto_login', {
         method: 'POST',
         headers: {
@@ -63,36 +83,37 @@ function App() {
         },
         body: JSON.stringify({ token }),
       })
-        .then((r) => r.json())
-        .then((user) => {
-          if (user.admin) {
-            setAdmin(true);
-          }
-          setCurrentUser(user);
-        });
-    } else {
-      console.log('No token found, try logging in!');
+      .then((response) => {
+        if (response.status === 202) {
+          return response.json();
+        } else {
+          throw new Error("Something went wrong");
+        }
+      })
+      .then((data) => {
+        setCurrentUser(data.user);
+        setAdmin(data.user.entity === "admin");
+      })
+      .catch((error) => {
+        console.log('Error fetching auto_login:', error);
+      });
     }
   }, []);
+  
+  
 
   return (
     <div className="App">
-        {/* {loggedIn ? (
-    <h1 className="greeting-text">Welcome back {user.username}!</h1>
-  ): (
-    <div className="please-log-in">
-      <h3>Please log in!</h3>
-    </div>
-  )}   */}
+                  
       <UserContext.Provider value={[user, setUser]}>
         <AdminContext.Provider value={[admin, setAdmin]}>
           {!admin && <NavBar />}
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>} />
             <Route path="/adminsignup" element={<AdminSignup />} />
-            <Route path="/adminlogin" element={<AdminLogin />} />
+            <Route path="/adminlogin" element={<AdminLogin setCurrentUser={setCurrentUser} />} />
             <Route path="/home" element={<Home />} />
             <Route path="/meals" element={<Meals />} />
             <Route path="/order" element={<OrderStatus />} />
@@ -110,7 +131,7 @@ function App() {
           {admin && (
             <React.Fragment>
               <Header />
-              <Sidebar />
+              <Sidebar handleLogout={Logout} />
               <Routes>
                 <Route path="/dashboard" element={<RecentOrders />} />
                 <Route path="/order-details" element={<OrderDetails />} />

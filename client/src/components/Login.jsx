@@ -5,7 +5,8 @@ import { GiPadlock } from "react-icons/gi";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { UserContext } from "../App.js";
 
-function Login() {
+
+function Login(props) {
   const navigate = useNavigate();
   const [user, setUser] = useContext(UserContext);
   const [login, setLogin] = useState({
@@ -23,17 +24,23 @@ function Login() {
       },
       body: JSON.stringify(login),
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
+      .then((r) => {
+        if (r.ok) {
+          return r.json();
         } else {
           throw new Error("Invalid username or password");
         }
       })
       .then((data) => {
-        const { token } = data;
-        localStorage.setItem("jwt", token);
+        localStorage.setItem("token", data.jwt);
+      props.setCurrentUser(data.user);
+
         setUser(true);
+        Swal.fire({
+          title: "You have successfully logged_in.",
+          icon: "success",
+          timer: 1000,
+        });
         navigate("/home");
       })
       .catch((error) => {
@@ -50,6 +57,8 @@ function Login() {
         });
       });
   }
+
+
 
   const logoStyle = {
     position: "absolute",
