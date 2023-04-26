@@ -1,12 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-# puts '👥 Seeding Users...'
 
+puts '👥 Seeding Users...'
 User.create([
     {
         username: 'mercienyambura',
@@ -45,9 +38,9 @@ User.create([
         image: ''
     }
 ])
-puts '♨️ Seeded Users'
 
 
+puts '♨️ Seeding Admins...'
 Admin.create([
     {
         username: 'mercienyambura',
@@ -86,9 +79,9 @@ Admin.create([
         image: ''
     }
 ])
-puts '🔥 Seeded Admins...'
 
 
+puts '🔥 Seeding Restaurants...'
 Restaurant.create([
     {
         admin_id: 1,
@@ -139,9 +132,9 @@ Restaurant.create([
         chef_name: 'Not Alex'
     },
 ])
-puts '🍖♨️🔥🥩🥓🍳 Seeded Restaurants...'
 
 
+puts '🍳 Seeding Menuoptions...'
 Menuoption.create!([
     {
   restaurant_id: 1,
@@ -187,10 +180,8 @@ Menuoption.create!([
                     image_url: ""
                       }
 ])
-puts '🍕 Seeded MenuOptions...'
 
-
-
+puts '🍕 Seeding Meal...'
 Meal.create!([
     {
         
@@ -237,9 +228,8 @@ Meal.create!([
         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
     }
 ])
-puts '🍕 Seeded Meals...'
 
-
+puts '📦 Seeding Orders...'
 Order.create([
     {
         user_id: 1,
@@ -331,5 +321,4 @@ Order.create([
     }
 
 ])
-puts '📦 Seeded Orders...'
 

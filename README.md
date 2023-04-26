@@ -1,6 +1,6 @@
 # AfriEats
 
-AfriEats is a mmultivendor application whenre as a customer, you get to make an order at the comfort of your home. As a vendor, you can host your restaurant(s) and post your meals.
+AfriEats is a mmultivendor application where as a customer, you get to make an order at the comfort of your home. As a vendor, you can host your restaurant(s) and post your meals.
 
 This application is as Final Project of the Moringa Software Engineering Program, Phase-5, contributed by:
 1. Alex Maranga
