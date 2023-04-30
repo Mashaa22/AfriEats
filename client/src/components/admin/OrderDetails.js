@@ -1,7 +1,32 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import "./OrderDetails.css";
+import { Modal, Button } from "react-bootstrap";
 
 function OrderDetails(){
+    const [orders, setOrders] = useState();
+    const [details, setDetails] = useState({});
+    //get orders
+    useEffect(() => {
+        fetch("/orders")
+        .then(res => res.json())
+        .then(response => {
+        setOrders(response)
+        })
+    }, [])
+    
+    //display details on clicked order
+    const [showModal, setShowModal] = useState(false);
+
+    const handleOrderClick = (order) => {
+        setDetails(order);
+        console.log(order)
+        console.log(details)
+        setShowModal(true);
+    };
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
+    
     return(
         <div className='order-details'>
             <div className='title'>
@@ -21,14 +46,18 @@ function OrderDetails(){
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">#1</th>
-                            <td>17-08-2023</td>
-                            <td>Spence</td>
-                            <td>$40</td>
-                            <td>Delivered</td>
-                            <td>View Details</td>
-                        </tr>
+                        { orders && orders.map((order)=>{
+                            return(
+                                <tr>
+                                    <th scope="row">{order.id}</th>
+                                    <td>{order.date_of_delivery}</td>
+                                    <td>{order.user.username}</td>
+                                    <td>{order.price}</td>
+                                    <td>{order.status}</td>
+                                    <td onClick={()=>handleOrderClick(order)}>View Details</td>
+                                </tr>
+                            )})
+                        }
                     </tbody>
                     <tfoot>
                         <tr>
@@ -36,10 +65,34 @@ function OrderDetails(){
                         <td>$200</td>
                         </tr>
                     </tfoot>
-                </table>
+                </table> 
             </div>
+            {(
+                <Modal show={showModal} onHide={handleCloseModal}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Order Details</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <div>
+                            <h3> Order for Spence</h3>
+                            <p>
+                                <strong>Order Date: {details.date_of_delivery}</strong>
+                            </p>
+                            <p>
+                                <strong>Price: {details.price}</strong>
+                            </p>
+                            <p>Address: {details.address}</p>
+                        </div>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleCloseModal}>
+                        Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            )}
         </div>
     )
 }
 
-export default OrderDetails;
+export default OrderDetails;/**/

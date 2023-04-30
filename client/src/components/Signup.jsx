@@ -93,7 +93,6 @@ const [user, setUser] = useState({
 username: "",
 email: "",
 password: "",
-confirm_password: "",
 });
 // Get authentication status
 const isAuthenticated = localStorage.getItem("token");
@@ -140,7 +139,6 @@ setUser({
   username: "",
   email: "",
   password: "",
-  confirm_password: "",
 });
 };
   const logoStyle = {
@@ -285,14 +283,14 @@ setUser({
                       name="confirm_password"
                       id="confirm_password"
                       placeholder="confirm password"
-                      value={user.confirm_password}
-                      onChange={(event) =>
-                        setUser((prevState) => ({
-                        // setStudent((prevState) => ({
-                          ...prevState,
-                          confirm_password: event.target.value,
-                        }))
-                      }
+                      // value={user.confirm_password}
+                      // onChange={(event) =>
+                      //   setUser((prevState) => ({
+                      //   // setStudent((prevState) => ({
+                      //     ...prevState,
+                      //     confirm_password: event.target.value,
+                      //   }))
+                      // }
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
                       required
                     />

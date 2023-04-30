@@ -12,16 +12,19 @@
   background: linear-gradient(to bottom, rgba(48,45,91,1) 0%, rgba(0,0,0,1) 0%, rgba(10,20,93,0.9192051820728291) 100%);
   transition: all 0.5s;
 }
+
 .top-section{
   display: flex;
   justify-content: end;
   padding: 20px 15px;
 }
+
 .bars{
   font-size: 35px;
   padding-right: 7px;
   color: #fff;
 }
+
 #link{
   display: flex;
   color: #fff;
@@ -33,23 +36,59 @@
   border-radius:30px 0px 0px 30px;
   text-decoration: none;
 }
+
 #link:hover{
     background-color: rgba(48,45,91,1);
     color: #fff;
     transition: all 0.5s;   
 }
+
 .active{
   background-color: rgba(48,45,91,1);
   color: #fff;
 }
+
 #icon{
   font-size: 25px;
 }
+
 #link-text{
   text-decoration: none;
   font-size: 18px;
 }
+
 main{
   width: 100%;
   padding: 3vw;
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 0px;
+    padding-left: 0px;
+    margin-bottom: 10px;
+    background-color: #fff;
+  }
+
+  .top-section {
+    padding: 20px 0px;
+  }
+
+  #link {
+    border-radius: 0px;
+    padding: 10px 20px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+  }
+
+  #link-text {
+    font-size: 16px;
+  }
+
+  main {
+    padding: 2vw;
+  }
 }

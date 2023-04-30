@@ -44,10 +44,11 @@ function App() {
   function setCurrentUser(currentUser) {
     setUser(currentUser);
     setLoggedIn(true);
-    if (currentUser.entity === 'admin') {
+    if (currentUser && currentUser.entity === 'admin') {
       setAdmin(true);
     }
   }
+  
 
   function Logout() {
     const navigate = useNavigate();
@@ -63,14 +64,8 @@ function App() {
       </button>
     );
   }
-  // function logOut() {
-  //   setUser({});
-  //   setAdmin(false);
-  //   setLoggedIn(false);
-  //   localStorage.removeItem("token");
-    
-  // }
 
+  
   useEffect(() => {
     const token = localStorage.getItem("token");
   
@@ -99,8 +94,6 @@ function App() {
       });
     }
   }, []);
-  
-  
 
   return (
     <div className="App">
@@ -118,7 +111,7 @@ function App() {
             <Route path="/meals" element={<Meals />} />
             <Route path="/order" element={<OrderStatus />} />
             <Route path="/order-history" element={<OrderHistory />} />
-            <Route path="/restaurant-views" element={<RestaurantView />} />
+            <Route path="/restaurant-views/:id" element={<RestaurantView />} />
             <Route path="/restaurants" element={<Restaurant />} />
             <Route path="/slides" element={<Slides />} />
             <Route path="/checkout" element={<Checkout />} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './layout/Header.js';
 import Sidebar from './layout/Sidebar.js';
@@ -8,10 +9,12 @@ import OrderDetails from './OrderDetails.js';
 import MenuList from './MenuList.js';
 import AddToMenu from './AddToMenu.js';
 import EditMenu from './EditMenu.js';
+import MyCart from '../MyCart'
 
 function Common(){
     return(
-        <div className='container-flex'>
+        // <BrowserRouter>
+        <>
             <Header/>
                 <div className="content-container">
                     <Sidebar/>
@@ -21,11 +24,14 @@ function Common(){
                                 <Route path="/order-details" element={<OrderDetails/>}/>   
                                 <Route path="/menu-list" element={<MenuList/>}/>
                                 <Route path="/add-menu" element={<AddToMenu/>}/> 
-                                <Route path="/edit-menu" element={<EditMenu/>}/>  
+                                <Route path="/edit-menu" element={<EditMenu/>}/> 
+                                <Route path='/logout' element={<MyCart/>}/> 
                             </Routes>
                         </div>
                 </div>
-        </div>
+                
+            {/* </BrowserRouter> */}
+      </>
     )
 }
 

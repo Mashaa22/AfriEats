@@ -6,17 +6,13 @@ import { RiAccountCircleFill } from "react-icons/ri";
 import { GiPadlock } from "react-icons/gi";
 import { GoKey } from "react-icons/go";
 
-// const sgMail = require('@sendgrid/mail')
-// sgMail.setApiKey(
-//   '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'
-// );
+
 
 function AdminSignup() {
   const [admin, setAdmin] = useState({
     username: "",
     email: "",
     password: "",
-    pin:"",
   });
   const [isSignedUp, setIsSignedUp] = useState(false);
 
@@ -26,7 +22,6 @@ function AdminSignup() {
         username: admin.username,
         email: admin.email,
         password: admin.password,
-        pin: admin.pin
       },
     };
   };
@@ -49,7 +44,6 @@ function AdminSignup() {
         username: "",
         email: "",
         password: "",
-        pin:"",
       });
       window.location.href = "/adminlogin"; // Navigate to admin dashboard page
     } catch (error) {
@@ -227,7 +221,7 @@ function AdminSignup() {
                 </div>
               </div>
 
-              <div>
+              {/* <div>
                   <label
                     className="mb-2 text-sm font-medium text-gray-900"
                     htmlFor="pin"
@@ -248,7 +242,8 @@ function AdminSignup() {
                     required
                   />
                 </div>
-              </div>
+              </div> */}
+                  
               <button
                 type="submit"
                 className="w-full bg-yellow-500 font-bold text-gray-800 p-2 rounded-full"

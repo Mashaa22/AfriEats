@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom';
-import{IoNotifications, IoCart, IoPersonCircleSharp} from 'react-icons/io5';
+import { IoNotifications, IoCart, IoPersonCircleSharp } from 'react-icons/io5';
+import Logout from './Logout';
 
 import './NavBar.css';
 
@@ -10,7 +11,7 @@ function NavBar() {
      <nav>
       <div className="navbar__logo">
         <h1>
-        <Link to="/" className="custom-link" style={{ textDecoration: 'none', color: 'white', fontSize: '20px', fontWeight: 'bold' }}>
+        <Link to="/" className="custom-link" style={{ textDecoration: 'none', color: 'black', fontSize: '20px',    fontWeight: 'bold' }}>
          <b className='capital'>A</b>FRI<b className="navbar__logo-eats"><b className='capital'>E</b>ATS</b>
         </Link>
 
@@ -47,13 +48,7 @@ function NavBar() {
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/Logout"
-              className="navbar__link"
-              activeClassName="navbar__link--active"
-            >
-              Logout
-            </NavLink>
+          <Logout />
           </li>
           <li>
             <NavLink
