@@ -26,6 +26,8 @@ module AfriEats
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore, key: '_myapp_session'
 
-
+ 
+    # config.action_dispatch.cookies_same_site_protection = :strict
+    # config.api_only = true
   end
 end

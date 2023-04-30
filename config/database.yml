@@ -1,30 +1,26 @@
 default: &default
-  adapter: sqlite3
-  # adapter: postgresql
-  # encoding: unicode
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: db/development.sqlite3
-  # database: afri_eats_development
-  # host: localhost
-  # username: alex
-  # password: alex
+  database: afri_eats_development
+  host: localhost
+  username: alex
+  password: alex
 
 test:
   <<: *default
-  database: db/test.sqlite3
-  # database: afri_eats_test
-  # host: localhost
-  # username: alex
-  # password: alex
+  database: afri_eats_test
+  host: localhost
+  username: alex
+  password: alex
 
 production:
   <<: *default
-  database: db/production.sqlite3
-  # database: afri_eats_production
-  # host: localhost
-  # username: alex
-  # password: <%= ENV["afri_eats_PASSWORD"] %>
+  database: afri_eats_production
+  host: localhost
+  username: alex
+  password: <%= ENV["afri_eats_PASSWORD"] %>
 

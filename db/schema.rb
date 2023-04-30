@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -22,20 +25,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.integer "restaurant_id", null: false
-    t.integer "menuoptions_id", null: false
+    t.bigint "menuoption_id", null: false
     t.string "name"
     t.integer "price"
     t.string "description"
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["menuoptions_id"], name: "index_meals_on_menuoptions_id"
-    t.index ["restaurant_id"], name: "index_meals_on_restaurant_id"
+    t.index ["menuoption_id"], name: "index_meals_on_menuoption_id"
   end
 
   create_table "menuoptions", force: :cascade do |t|
-    t.integer "restaurant_id", null: false
+    t.bigint "restaurant_id", null: false
     t.string "name"
     t.integer "price"
     t.string "description"
@@ -46,8 +47,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "meal_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "restaurant_id", null: false
     t.string "status"
     t.string "address"
     t.text "date_of_delivery"
@@ -55,12 +56,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["meal_id"], name: "index_orders_on_meal_id"
+    t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.integer "admin_id", null: false
+    t.bigint "admin_id", null: false
     t.string "name"
     t.string "image_url"
     t.string "chef_url"
@@ -80,10 +81,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_060728) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "meals", "menuoptions", column: "menuoptions_id"
-  add_foreign_key "meals", "restaurants"
+  add_foreign_key "meals", "menuoptions"
   add_foreign_key "menuoptions", "restaurants"
-  add_foreign_key "orders", "meals"
+  add_foreign_key "orders", "restaurants"
   add_foreign_key "orders", "users"
   add_foreign_key "restaurants", "admins"
 end

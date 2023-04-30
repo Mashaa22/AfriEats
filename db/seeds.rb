@@ -1,5 +1,12 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)
+# puts '👥 Seeding Users...'
 
-puts '👥 Seeding Users...'
 User.create([
     {
         username: 'mercienyambura',
@@ -38,9 +45,9 @@ User.create([
         image: ''
     }
 ])
+puts '♨️ Seeded Users'
 
 
-puts '♨️ Seeding Admins...'
 Admin.create([
     {
         username: 'mercienyambura',
@@ -79,9 +86,9 @@ Admin.create([
         image: ''
     }
 ])
+puts '🔥 Seeded Admins...'
 
 
-puts '🔥 Seeding Restaurants...'
 Restaurant.create([
     {
         admin_id: 1,
@@ -132,193 +139,208 @@ Restaurant.create([
         chef_name: 'Not Alex'
     },
 ])
+puts '🍖♨️🔥🥩🥓🍳 Seeded Restaurants...'
 
 
-puts '🍳 Seeding Menuoptions...'
-Menuoption.create!([
-    {
-  restaurant_id: 1,
-  name: "Chicken",
-  price: 10,
-  description: "rice, chicken and chicken",
-  image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUU6aHv3WlqCP8t4hdZkXXoxXxluACIcXceQ&usqp=CAU"
-    },
-    {
-  restaurant_id: 2,
-  name: "Fried Chicken",
-  price: 10,
-  description: "grilled chicken, bell_pepper and garlic",
-  image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUU6aHv3WlqCP8t4hdZkXXoxXxluACIcXceQ&usqp=CAU"
-    },
-    {
-        restaurant_id: 3,
-        name: "American Tacos",
-        price: 10,
-        description: "n*n, beef stripes, lettuce and tomatoes",
-        image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHfSDKQ5WOLjyJqherv_JzXnroofcTtjmGhA&usqp=CAU"
-          },
-          {
-            restaurant_id: 4,
-            name: "Chilling Ice Corner",
-            price: 10,
-            description: "vanilla, strawbery",
-            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFT8H1yi0GQ6dVI36ALGYB9bWZvOl9K9_Czg&usqp=CAU"
-              },
+# Menuoption.create!([
+#     {
+#   restaurant_id: 1,
+#   name: "Chicken",
+#   price: 10,
+#   description: "rice, chicken and chicken",
+#   image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUU6aHv3WlqCP8t4hdZkXXoxXxluACIcXceQ&usqp=CAU"
+#     },
+#     {
+#   restaurant_id: 2,
+#   name: "Fried Chicken",
+#   price: 10,
+#   description: "grilled chicken, bell_pepper and garlic",
+#   image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUU6aHv3WlqCP8t4hdZkXXoxXxluACIcXceQ&usqp=CAU"
+#     },
+#     {
+#         restaurant_id: 3,
+#         name: "American Tacos",
+#         price: 10,
+#         description: "n*n, beef stripes, lettuce and tomatoes",
+#         image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHfSDKQ5WOLjyJqherv_JzXnroofcTtjmGhA&usqp=CAU"
+#           },
+#           {
+#             restaurant_id: 4,
+#             name: "Chilling Ice Corner",
+#             price: 10,
+#             description: "vanilla, strawbery",
+#             image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFT8H1yi0GQ6dVI36ALGYB9bWZvOl9K9_Czg&usqp=CAU"
+#               },
   
-              {
-                restaurant_id: 5,
-                name: "Burgers",
-                price: 10,
-                description: "just bread and meat",
-                image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR64FsnUG179QiGD-BZ1_QeUPVhS886Et-duQ&usqp=CAU"
-                  },
-                  {
-                    restaurant_id: 6,
-                    name: "Home-made pizza",
-                    price: 10,
-                    description: "Classic Pizza with pepperoni and cheese",
-                    image_url: ""
-                      }
-])
+#               {
+#                 restaurant_id: 5,
+#                 name: "Burgers",
+#                 price: 10,
+#                 description: "just bread and meat",
+#                 image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR64FsnUG179QiGD-BZ1_QeUPVhS886Et-duQ&usqp=CAU"
+#                   },
+#                   {
+#                     restaurant_id: 6,
+#                     name: "Home-made pizza",
+#                     price: 10,
+#                     description: "Classic Pizza with pepperoni and cheese",
+#                     image_url: ""
+#                       }
+# ])
+# puts '🍕 Seeded MenuOptions...'
 
-puts '🍕 Seeding Meal...'
-Meal.create!([
-    {
+
+
+# Meal.create!([
+#     {
         
-        menuoption_id: 1,
-        name: 'Large Chicken Feast',
-        price: 1100,
-        description: 'Supreme Pizza Chicken Tikka, Peri-Peri Green Pepper, Onions, Sweetcorn, Mushroom, Mozzarella',
-        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-    },
-    {
-        menuoption_id: 2,
-        name: 'Mega Chicken Feast',
-        price: 1350,
-        description: 'Supreme Pizza Chicken Tikka, Peri-Peri Green Pepper, Onions, Sweetcorn, Mushroom, Mozzarella',
-        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-    },
-    {
+#         menuoption_id: 1,
+#         name: 'Large Chicken Feast',
+#         price: 1100,
+#         description: 'Supreme Pizza Chicken Tikka, Peri-Peri Green Pepper, Onions, Sweetcorn, Mushroom, Mozzarella',
+#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+#     },
+#     {
+#         menuoption_id: 2,
+#         name: 'Mega Chicken Feast',
+#         price: 1350,
+#         description: 'Supreme Pizza Chicken Tikka, Peri-Peri Green Pepper, Onions, Sweetcorn, Mushroom, Mozzarella',
+#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+#     },
+#     {
 
-        menuoption_id: 3,
-        name: 'Regular Nyama Feast',
-        price: 600,
-        description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
-        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-    },
+#         menuoption_id: 3,
+#         name: 'Regular Nyama Feast',
+#         price: 600,
+#         description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
+#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+#     },
+#     {
+#         menuoption_id: 4,
+#         name: 'Medium Nyama Feast',
+#         price: 850,
+#         description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
+#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+#     },
+#     {
+#         menuoption_id: 5,
+#         name: 'Large Nyama Feast',
+#         price: 1100,
+#         description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
+#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+#     },
+#     {
+#         menuoption_id: 6,
+#         name: 'Mega Nyama Feast',
+#         price: 1350,
+#         description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
+#         image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+#     }
+# ])
+# puts '🍕 Seeded Meals...'
+
+
+# Order.create([
+#     {
+#         user_id: 1,
+#         restaurant_id: 1,
+#         status: 'Pending',
+#         address: 'Kahawa sukari, opposite PCEA House 1234',
+#         date_of_delivery: '17-08-2023',
+#         quantity: 2,
+#         price: 36
+#     },
+#     {
+#         user_id: 2,
+#         restaurant_id: 2,
+#         status: 'Pending',
+#         address: 'Kahawa sukari, opposite PCEA House 1234',
+#         date_of_delivery: '17-08-2023',
+#         quantity: 2,
+#         price: 36
+#     },
+#     {
+#         user_id: 3,
+#         restaurant_id: 3,
+#         status: 'Pending',
+#         address: 'Kahawa sukari, opposite PCEA House 1234',
+#         date_of_delivery: '17-08-2023',
+#         quantity: 2,
+#         price: 36
+#     },
+#     {
+#         user_id: 4,
+#         restaurant_id: 4,
+#         status: 'Pending',
+#         address: 'Kahawa sukari, opposite PCEA House 1234',
+#         date_of_delivery: '17-08-2023',
+#         quantity: 2,
+#         price: 36
+#     },
+#     {
+#         user_id: 2,
+#         restaurant_id: 5,
+#         status: 'Pending',
+#         address: 'Kahawa sukari, opposite PCEA House 1234',
+#         date_of_delivery: '17-08-2023',
+#         quantity: 2,
+#         price: 36
+#     },
+#     {
+#         user_id: 1,
+#         restaurant_id: 1,
+#         status: 'Pending',
+#         address: 'Kahawa sukari, opposite PCEA House 1234',
+#         date_of_delivery: '17-08-2023',
+#         quantity: 2,
+#         price: 36
+#     },
+#     {
+#         user_id: 6,
+#         restaurant_id: 6,
+#         status: 'Pending',
+#         address: 'Kahawa sukari, opposite PCEA House 1234',
+#         date_of_delivery: '17-08-2023',
+#         quantity: 2,
+#         price: 36
+#     },
+#     {
+#         user_id: 5,
+#         restaurant_id: 3,
+#         status: 'Pending',
+#         address: 'Kahawa sukari, opposite PCEA House 1234',
+#         date_of_delivery: '17-08-2023',
+#         quantity: 2,
+#         price: 36
+#     },
+#     {
+#         user_id: 3,
+#         restaurant_id: 2,
+#         status: 'Pending',
+#         address: 'Kahawa sukari, opposite PCEA House 1234',
+#         date_of_delivery: '17-08-2023',
+#         quantity: 2,
+#         price: 36
+#     },
+#     {
+#         user_id: 5,
+#         restaurant_id: 4,
+#         status: 'Pending',
+#         address: 'Kahawa sukari, opposite PCEA House 1234',
+#         date_of_delivery: '17-08-2023',
+#         quantity: 2,
+#         price: 36
+#     },
     {
-        menuoption_id: 4,
-        name: 'Medium Nyama Feast',
-        price: 850,
-        description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
-        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-    },
-    {
-        menuoption_id: 5,
-        name: 'Large Nyama Feast',
-        price: 1100,
-        description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
-        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
-    },
-    {
-        menuoption_id: 6,
-        name: 'Mega Nyama Feast',
-        price: 1350,
-        description: 'Supreme Pizza BBQ Steak, Pepperoni, Boereword Mince, Macon, Ham, Green Pepper, Onion, Sweetcorn, Diced Tomato, Mozzarella Cheese',
-        image_url: 'https://pizzainn.co.ke/wp-content/uploads/2017/05/4956-Kenya-PI-SM-300x300HR-2.jpg'
+        user_id: 5,
+        restaurant_id: 1,
+        status: 'Pending',
+        address: 'Kahawa sukari, opposite PCEA House 1234',
+        date_of_delivery: '17-08-2023',
+        quantity: 2,
+        price: 36
     }
-])
 
-puts '📦 Seeding Orders...'
-Order.create([
-    {
-        user_id: 1,
-        status: 'Pending',
-        address: 'Kahawa sukari, opposite PCEA House 1234',
-        date_of_delivery: '17-08-2023',
-        quantity: 2,
-        price: 36
-    },
-    {
-        user_id: 2,
-        status: 'Pending',
-        address: 'Kahawa sukari, opposite PCEA House 1234',
-        date_of_delivery: '17-08-2023',
-        quantity: 2,
-        price: 36
-    },
-    {
-        user_id: 3,
-        status: 'Pending',
-        address: 'Kahawa sukari, opposite PCEA House 1234',
-        date_of_delivery: '17-08-2023',
-        quantity: 2,
-        price: 36
-    },
-    {
-        user_id: 4,
-        status: 'Pending',
-        address: 'Kahawa sukari, opposite PCEA House 1234',
-        date_of_delivery: '17-08-2023',
-        quantity: 2,
-        price: 36
-    },
-    {
-        user_id: 1,
-        status: 'Pending',
-        address: 'Kahawa sukari, opposite PCEA House 1234',
-        date_of_delivery: '17-08-2023',
-        quantity: 2,
-        price: 36
-    },
-    {
-        user_id: 1,
-        status: 'Pending',
-        address: 'Kahawa sukari, opposite PCEA House 1234',
-        date_of_delivery: '17-08-2023',
-        quantity: 2,
-        price: 36
-    },
-    {
-        user_id: 2,
-        status: 'Pending',
-        address: 'Kahawa sukari, opposite PCEA House 1234',
-        date_of_delivery: '17-08-2023',
-        quantity: 2,
-        price: 36
-    },
-    {
-        user_id: 3,
-        status: 'Pending',
-        address: 'Kahawa sukari, opposite PCEA House 1234',
-        date_of_delivery: '17-08-2023',
-        quantity: 2,
-        price: 36
-    },
-    {
-        user_id: 3,
-        status: 'Pending',
-        address: 'Kahawa sukari, opposite PCEA House 1234',
-        date_of_delivery: '17-08-2023',
-        quantity: 2,
-        price: 36
-    },
-    {
-        user_id: 4,
-        status: 'Pending',
-        address: 'Kahawa sukari, opposite PCEA House 1234',
-        date_of_delivery: '17-08-2023',
-        quantity: 2,
-        price: 36
-    },
-    {
-        user_id: 4,
-        status: 'Pending',
-        address: 'Kahawa sukari, opposite PCEA House 1234',
-        date_of_delivery: '17-08-2023',
-        quantity: 2,
-        price: 36
-    }
-
-])
+# ])
+# puts '📦 Seeded Orders...'
 

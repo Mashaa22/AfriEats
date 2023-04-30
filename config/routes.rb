@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'auths#destroy'
   get '/logged_in', to: 'application#logged_in?'
   post '/auto_login', to: 'auths#auto_login'
+  get '/auto_login', to: 'auths#auto_login'
+
 
 
 end
