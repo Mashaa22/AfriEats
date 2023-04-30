@@ -1,5 +1,5 @@
 class OrderSerializer < ActiveModel::Serializer
   attributes :id, :status, :address, :date_of_delivery, :quantity, :price
-
-  end
-  
+  belongs_to :user
+  belongs_to :restaurant
+end

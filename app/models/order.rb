@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_many :meals
+  belongs_to :restaurant
+  has_many :meals, dependent: :destroy
 end

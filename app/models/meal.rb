@@ -1,7 +1,5 @@
 class Meal < ApplicationRecord
-  has_many :orders
-  
+  has_many :orders, dependent: :destroy
   belongs_to :menuoption
-  belongs_to :restaurant
 end
 

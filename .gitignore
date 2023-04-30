@@ -30,3 +30,40 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore generated JavaScript bundles
+/public/packs/*
+!/public/packs/.keep
+/public/assets/*
+
+
+
+# Ignore files larger than 50 MB
+*.iso
+*.dmg
+*.zip
+*.gz
+*.tar
+*.rar
+*.jar
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.ogg
+*.mp3
+*.wav
+*.psd
+*.ai
+*.pdf
+*.doc
+*.docx
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+*.exe
+*.dll
+*.so
+*.dylib
+

@@ -1,6 +1,5 @@
 class Restaurant < ApplicationRecord
-  has_many :meals
-  has_many :menuoptions
-  
+  has_many :meals, dependent: :destroy
+  has_many :menuoptions, dependent: :destroy
   belongs_to :admin
 end
