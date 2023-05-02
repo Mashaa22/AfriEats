@@ -1,6 +1,6 @@
 require "test_helper"
 
-class MealTest < ActiveSupport::TestCase
+class PinMailerTest < ActionMailer::TestCase
   # test "the truth" do
   #   assert true
   # end
