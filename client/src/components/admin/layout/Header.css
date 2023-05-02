@@ -5,6 +5,13 @@
   background: rgb(48,45,91);
 background: linear-gradient(90deg, rgba(48,45,91,1) 0%, rgba(0,0,0,1) 0%, rgb(10, 20, 93) 100%);
 }
-.navbar a{
-  color: #fff;
+.children{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+.navbar p{
+justify-self: flex-end;
+padding-right: 50px;
+color: #fff;
 }

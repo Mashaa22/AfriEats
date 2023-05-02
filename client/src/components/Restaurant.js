@@ -1,67 +1,66 @@
-import React from 'react'
-import './Restaurant.css'
-import Restaurants from "../homeimages/foodland.jpg"
-
-import {Link} from "react-router-dom";
-import { FaSearch} from "react-icons/fa";
-
-
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Restaurant() {
+  const [restaurants, setRestaurants] = useState([]);
+
+  useEffect(() => {
+    const getRestaurants = async () => {
+      const response = await fetch('/restaurants');
+      const FinalData = await response.json();
+      setRestaurants(FinalData);
+    };
+
+    getRestaurants();
+  }, []);
+
+  const restaurantImageStyle = {
+    width: 'calc(50% - 10px)',
+    marginBottom: '20px',
+    position: 'relative',
+    overflow: 'hidden'
+  };
+
+  const imgStyle = {
+    width: '90%',
+    height: '300px',
+    objectFit: 'cover',
+    borderRadius: '10px'
+  };
+
+  const textStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
+  };
+
   return (
-    <>
     <div className='restaurant-page'>
-        <div className='text'>
-            <h1>Restaurants</h1>
-            <div className="wrap">
-                <form action="" className="search-form">
-                    <input type="text" name="search" placeholder="Search for restaurant here" />
-                    <button type="submit">< FaSearch /></button>
-                </form>
-                    
-            </div>  
-                    
+      <div className='text'>
+        <h1>Restaurants</h1>
+        <div className='wrap'>
+          <form action='' className='search-form'>
+
+          </form>
         </div>
-        
-        <div className='restaurant-images'>
-        
-            <div className='image-container'>
-                <div className='img'>
-                <Link to="/restaurant-views"><img className= "img" src={Restaurants}alt='foodland'></img></Link> 
-
-                </div>
-                <div className='text1'> <h3>  Restaurant</h3></div>
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+        {restaurants.map((curElem) => {
+          return (
+            <div key={curElem.id} style={restaurantImageStyle}>
+              <Link to={`/restaurant-views/${curElem.id}`}>
+                <img src={curElem.image_url} alt={curElem.name} style={imgStyle} />
+              </Link>
+              <div className='text1' style={textStyle}>
+                <h3>{curElem.name}</h3>
+              </div>
             </div>
-            <div className='image-container'>
-                <div className='img'>
-                <Link to="/restaurant-views"><img className= "img" src={Restaurants}alt='foodland'></img></Link> 
-
-                </div>
-                <div className='text1'> <h3>  Restaurant</h3></div>
-            </div>
-            <div className='image-container'>
-                <div className='img'>
-                <Link to="/restaurant-views"><img className= "img" src={Restaurants}alt='foodland'></img></Link> 
-
-                </div>
-                <div className='text1'> <h3>  Restaurant</h3></div>
-            </div>
-            <div className='image-container'>
-                <div className='img'>
-                <Link to="/restaurant-views"><img className= "img" src={Restaurants}alt='foodland'></img></Link> 
-
-                </div>
-                <div className='text1'> <h3>  Restaurant</h3></div>
-            </div>
-
-            
-            
-        </div>
-
+          );
+        })}
+      </div>
     </div>
-      
-    </>
-  )
+  );
 }
 
-export default Restaurant
+export default Restaurant;

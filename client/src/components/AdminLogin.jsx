@@ -12,52 +12,54 @@ function AdminLogin(props) {
     const [login, setLogin] = useState({
     username: "",
     password: "",
-    pin: ""
+    pin: "",
     });
     
-    function handleLogin(event) {
+  function handleLogin(event) {
     event.preventDefault();
     fetch("/login", {
-    method: "POST",
-    headers: {
-    "Content-Type": "application/json",
-    },
-    body: JSON.stringify(login),
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(login),
     })
-      
     .then((response) => {
-      localStorage.setItem("token", response.token);
-      
+      if (response.status === 202) {
+        return response.json();
+      } else if (response.status === 401) {
+        throw new Error("Wrong username, password or pin");
+      } else {
+        throw new Error("Something went wrong");
+      }
+    })
+    .then((data) => {
+      localStorage.setItem("token", data.jwt);
+      props.setCurrentUser(data.user);
+    
       Swal.fire({
         title: "You have successfully LoggedIn.",
         icon: "success",
         timer: 1000,
       });
-    setTimeout(() => navigate("/dashboard"), 100);
-    setAdmin(true);
+      setTimeout(() => navigate("/dashboard"), 100);
+      setAdmin(true);
     })
-    .then((res) => {
-      if (res.status === 202) {
-      return res.json();
-      } else if (res.status === 401) {
-      throw new Error("Wrong username, password or pin");
-      } else {
-      throw new Error("Something went wrong");
-      }
-      })
-    // .catch((error) => {
-    // Swal.fire({
-    // title: error.message,
-    // icon: "error",
-    // timer: 2000,
-    // });
-    // });
-    setLogin({
-    username: "",
-    password: "",
-    pin: "",
+    .catch((error) => {
+      Swal.fire({
+        title: error.message,
+        icon: "error",
+        timer: 2000,
+      });
+    })
+    .finally(() => {
+      setLogin({
+        username: "",
+        password: "",
+        pin: "",
+      });
     });
-    }
+  }
 
   const logoStyle = {
     position: "absolute",

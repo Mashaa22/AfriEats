@@ -3,12 +3,13 @@ import "./Header.css";
 
 function Header(){
     return(
-        <nav className="navbar p-3">
-            <div className="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
-                <a className="navbar-brand">
-                    KFC ADMIN
-                </a>
-            </div>
+        <nav className="navbar p-3 children">
+                <h3 className="navbar-brand" style={{ textDecoration: 'none', color: 'white', fontSize: '15px', fontWeight: 'bold' }}>
+                    <b className='capital'>A</b>FRI<b className="navbar__logo-eats"><b className='capital'>E</b>ATS</b><b className='dashboard capital'>   D</b>ASHBOARD
+                </h3>
+                <p className="">
+                    ADMIN
+                </p>
         </nav>
     )
 }

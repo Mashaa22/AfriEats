@@ -1,7 +1,22 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import "./RecentOrders.css";
 
-function RecentOrders(){
+function RecentOrders({ adminId }) {
+    // console.log(adminId);
+    const [orders, setOrders] = useState();
+
+    //get orders
+    useEffect(() => {
+        fetch("/admin_orders")
+        .then(res => res.json())
+        .then(response => {
+        //fetch data only related to logged in admin
+        const filteredData = response.filter(order => order.restaurant.id === adminId);
+            setOrders(filteredData);
+            console.log(filteredData)
+        })
+    }, [])
+
     return(
         <div className='recent-orders'>
             <div className='title'>
@@ -15,22 +30,20 @@ function RecentOrders(){
                             <th>Name</th>
                             <th>Email</th>
                             <th>Date of Order</th>
-                            <th>Status</th>
-                            <th>Invoice</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">#1</th>
-                            <td>Spence</td>
-                            <td>Spence@gmail.com</td>
-                            <td>17-08-2023</td>
-                            <td>Delivery</td>
-                            <td><span class="material-symbols-outlined">
-                                download
-                                </span>
-                            </td>
-                        </tr>
+                        { orders && orders.map((order)=>{
+                            return(
+                                <tr>
+                                    <th scope="row">{order.id}</th>
+                                    <td>{order.user.username}</td>
+                                    <td>{order.user.email}</td>
+                                    <td>02-05-2023</td>
+                                </tr>
+                            )})
+                        }
+                        
                     </tbody>
                 </table>
             </div>

@@ -1,29 +1,79 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
 import "./EditMenu.css"
 
-function EditMenu(){
-    const [file, setFile] = useState();
-    function handleChange(e) {
-        console.log(e.target.files);
-        setFile(URL.createObjectURL(e.target.files[0]));
+function EditMenu({menu, setDisplay, onUpdateMeal}){
+    
+    const initialstate = {
+        image_url: "",
+        name: menu.name,
+        description: menu.description,
+        restaurant_id: menu.restaurant_id,
+        price: menu.price
+    };
+
+    const [menuData, setMenuData] = useState(initialstate);
+      
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('restaurant_id', menuData.restaurant_id);
+        formData.append('name', menuData.name);
+        formData.append('price', menuData.price);
+        formData.append('description', menuData.description);
+        formData.append('image_url', menuData.image_url);
+        console.log(menuData);
+        console.log(formData);
+        fetch(`/menuoptions/${menu.id}`, {
+            method: "PATCH",
+            body: formData,
+        })
+        .then((response) => {
+                if (response.ok) {
+                    onUpdateMeal(menu);
+                // show success message
+                alert(`submitting changes to ${menu.name} has been done successfully`);
+            } else {
+                // show error message
+                alert(`An error has occurred while submiting changes to ${menu.name}`);
+            }
+        })
+        .catch(error=>alert(error));
     }
+       
+
+    //handle form onChange event
+    const [file, setFile] = useState();
+    const onImageChange = (event) => { 
+        setMenuData({ ...menuData, image_url: event.target.files[0] });
+        setFile(URL.createObjectURL(event.target.files[0]));
+    };
+    const handleOnChange = (event) => {
+        setMenuData({ ...menuData, [event.target.name]: event.target.value });
+    };
+
+    //switch display back to menu-list
+    const handleChangeDisplay =(e)=>{
+        e.preventDefault();
+        setDisplay(false);
+    };
     return(
             <div className="">
-                <form className="edit-profile-form menu-form">
+                <form className="edit-profile-form menu-form" onSubmit={handleSubmit}>
                     <div className="form-group upload-image">
                         <label htmlFor="file" className="file-style">
                             <span className="material-symbols-outlined">add</span>
-                            <p>Add Image</p>
+                            <p>Change Image</p>
                         </label>
 
                         <input
                         name="image"
+                        accept="image/*" 
+                        multiple={false}
                         type="file"
                         id="file"
-                        onChange={handleChange}
+                        onChange={onImageChange}
                         />
-                        <img src={file} className="display-image"/>
+                        <img src={file} alt='image' className="display-image"/>
                     </div>
                     <div className="add-to-menu">
                         <div className="form-group">
@@ -31,8 +81,9 @@ function EditMenu(){
                             <input
                             name="name"
                             type="text"
-
+                            onChange={handleOnChange}
                             className="form-control"
+                            value={menuData.name}
                             ></input>
                         </div>
                         <div className="form-group">
@@ -40,36 +91,29 @@ function EditMenu(){
                             <textarea
                             name="description"
                             rows="3"
+                            onChange={handleOnChange}
                             className="form-control"
+                            value={menuData.description}
                             ></textarea>
-                        </div>
-                        <div className="form-group restaurant">
-                            <label htmlFor="restaurant">Restaurant</label>
-                            <select name="restaurant" class="form-select" aria-label="Default select example">
-                                <option selected></option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
                         </div>
                         <div className="form-group price">
                             <label htmlFor="price">Price</label>
-
                             <input
                             name="price"
                             type="text"
+                            onChange={handleOnChange}
                             className="form-control"
+                            value={menuData.price}
                             ></input>
                         </div>
                         <div className="button">
-                                <button type="submit" className="btn btn-primary rounded">
+                                <button type="submit" onClick={handleSubmit} className="btn btn-primary rounded">
                                 Upload
                                 </button>
-                                <Link to='/menu-list'>
-                                <button type="submit" className="btn btn-light rounded">
+                                
+                                <button type="submit" onClick={handleChangeDisplay} className="btn btn-light rounded">
                                 Cancel
                                 </button>
-                                </Link>
                         </div>
                     </div>          
                 </form>

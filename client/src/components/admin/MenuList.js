@@ -1,69 +1,79 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import { TrashFill, PenFill } from "react-bootstrap-icons";
 import "./MenuList.css";
+import MenuOption from './MenuOption';
+import EditMenu from './EditMenu'
 
-function MenuList(){
+function MenuList({ adminId }) {
     const [menuOptions, setMenuOptions] = useState();
+    const [display, setDisplay] = useState(false);
+
+    //keep state of menuoption data for editing purposes
+    const [menu, setMenu] = useState();
 
     //get menu options
     useEffect(() => {
         fetch("/menuoptions")
         .then(res => res.json())
         .then(response => {
-        setMenuOptions(response)
+            const filteredData = response.filter(menuOption => menuOption.restaurant_id === adminId);
+            setMenuOptions(filteredData);
         })
-    }, [])
+    }, [adminId])
 
-    //delete menu option
-    const handleDelete=(e)=>{
-        e.preventDefault();
-        fetch(`/menuoptions/id`, {
-            method: "DELETE",
-        })
-        .then((data) => {
-        alert("successfully deleted");
-        });
+    //update state after deletion
+    const onDelete=(id)=>{
+        const updatedMenuOptions = menuOptions.filter((option) => option.id !== id);
+        setMenuOptions(updatedMenuOptions);
     }
+
+    //update state after editing menuoption
+    function handleUpdateMenu(updatedMeal) {
+        const updatedMenuOptions = menuOptions.map((meal) => {
+        return meal.id === updatedMeal.id ? updatedMeal : meal;
+        });
+        setMenuOptions(updatedMenuOptions);
+    }
+
+    //pass data to menuOption component
+    const optionRows = menuOptions && menuOptions.map((option)=> <MenuOption option={option}
+        setDisplay={setDisplay}
+        onDelete={onDelete}
+        setMenu={setMenu}
+        key={option.id}
+    />)
+
     return(
-        <div className='menu-options'>
-            <div className='title'>
-                <h5>Menu Options</h5>
+        <>
+        {
+            display === false ?
+            <div className='menu-options'>
+                <div className='title'>
+                    <h5>Menu Options</h5>
+                </div>
+                <div className="table-responsive menu-table">
+                    <table className="table">
+                        <thead>
+                            <tr className='head'>
+                                <th>Meal ID</th>
+                                <th></th>
+                                <th>Meal</th>
+                                <th>Restaurant</th>
+                                <th>Prices</th>
+                                <th>Action</th>
+                                <th>Submit Meal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {optionRows}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div className="table-responsive menu-table">
-                <table className="table">
-                    <thead>
-                        <tr className='head'>
-                            <th>Meal ID</th>
-                            <th></th>
-                            <th>Meal</th>
-                            <th>Restaurant</th>
-                            <th>Prices</th>
-                            <th>Action</th>
-                            <th>Submit Meal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">#1</th>
-                            <td><img src='https://i.pinimg.com/736x/2d/b8/fb/2db8fb0232bb507e6789fd7f07d2d9fa.jpg'></img></td>
-                            <td>Double Chicken Wings</td>
-                            <td>Kfc</td>
-                            <td>$40</td>
-                            <td className='action'>
-                                <span><Link to='/edit-menu'>
-                                    <PenFill/>
-                                </Link>
-                                <button type='delete' onClick={handleDelete}>
-                                <TrashFill/>
-                                </button></span>
-                            </td>
-                            <td>View Details</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+            :
+            <EditMenu menu={menu} setDisplay={setDisplay} onUpdateMeal={handleUpdateMenu}/>
+        }
+        
+        </>
     )
 }
 

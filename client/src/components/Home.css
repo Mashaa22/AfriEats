@@ -1,32 +1,8 @@
-.restaurant-home {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 5px;
-    background-color: white;
-    padding-left: 100px;
-    padding-right: 100px;
-    
-  }
-  
-  .restaurant-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
-    overflow:visible;
-    
-    
-  }
-  
-  .restaurant-image img {
-    max-width: 50%;
-    max-height: 50%;
-    object-fit: contain;
-    border-radius: 50%;
-  }
-
  .top-restaurant {
     text-align: center;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDmwv8Mh34TKlPa_nP6blDC3fsXDFUCbORwnTatgCLNbsR-9oTVAKliSA1z1IuR48mtE0&usqp=CAU');
+    background-size: cover;
+    background-position: center;
  }
  
 .foods-home {

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './layout/Header.js';
 import Sidebar from './layout/Sidebar.js';
@@ -8,24 +9,49 @@ import OrderDetails from './OrderDetails.js';
 import MenuList from './MenuList.js';
 import AddToMenu from './AddToMenu.js';
 import EditMenu from './EditMenu.js';
+import MyCart from '../MyCart'
 
-function Common(){
+function Common() {
+
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    fetch(`/auto_login?token=${token}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.entity === 'admin' && data.admin) {
+          setUserId(data.admin.id);
+          
+        } else if (data.entity === 'user' && data.user) { // Add this condition to log only admin data
+          console.log('User Data:', data.user);
+        } else {
+          console.log('Invalid response:', data);
+        }
+        console.log('Data:', data);
+      })
+      .catch(error => console.log(error));
+  }, []);
+
     return(
-        <div className='container-flex'>
+        <>
             <Header/>
                 <div className="content-container">
                     <Sidebar/>
                         <div className="dashboard-container">
                             <Routes>
-                                <Route path="/dashboard" element={<RecentOrders/>}/>
-                                <Route path="/order-details" element={<OrderDetails/>}/>   
-                                <Route path="/menu-list" element={<MenuList/>}/>
-                                <Route path="/add-menu" element={<AddToMenu/>}/> 
-                                <Route path="/edit-menu" element={<EditMenu/>}/>  
+              <Route path="/dashboard" element={<RecentOrders adminId={userId} />}/>
+                                <Route path="/order-details" element={<OrderDetails adminId={userId}/>}/>   
+                                <Route path="/menu-list" element={<MenuList adminId={userId}/>}/>
+                                <Route path="/add-menu" element={<AddToMenu resId={userId}/>}/> 
+                                <Route path="/edit-menu" element={<EditMenu resId={userId}/>}/> 
+                                <Route path='/logout' element={<MyCart/>}/> 
                             </Routes>
                         </div>
                 </div>
-        </div>
+                
+            {/* </BrowserRouter> */}
+      </>
     )
 }
 

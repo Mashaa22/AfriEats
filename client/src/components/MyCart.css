@@ -80,3 +80,13 @@ tbody img{
     width: 150px;
     padding-bottom: 2px;
 }
+.footer{
+    display: flex;
+    flex-direction: column;
+}
+.footer p{
+    justify-self: center;
+    font-style: italic;
+    font-weight: light;
+    font-size: medium;
+}

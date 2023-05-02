@@ -1,87 +1,3 @@
-// import React, { useState } from "react";
-// import { Link, useNavigate } from "react-router-dom";
-// import Swal from "sweetalert2";
-
-
-// function Signup() {
-//   const navigate = useNavigate();
-//   const [user, setUser] = useState({
-//     username: "",
-//     email: "",
-//     password: "",
-//     confirm_password:""
-//   });
-
-//   function handleRegister(event) {
-//     event.preventDefault();
-//     fetch("/user/signup", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ user }),
-//     })
-//       .then((res) => {
-//         if (res.status === 201) {
-//           res.json().then((data) => {
-//             localStorage.setItem("token", data.token);
-//             Swal.fire({
-//               title: "You have successfully registered the user.",
-//               icon: "success",
-//               timer: 2000,
-//             });
-//             setTimeout(() => navigate("/login"), 1000);
-//           });
-//         } else {
-//           Swal.fire({
-//             title: "There was an error creating the user.",
-//             icon: "error",
-//             timer: 2000,
-//           });
-//         }
-//       })
-//       .catch((err) => {
-//         console.error(err);
-//         Swal.fire({
-//           title: "There was an error creating the user.",
-//           icon: "error",
-//           timer: 2000,
-//         });
-//       });
-//     setUser({
-//       username: "",
-//       email: "",
-//       password: "",
-//       confirm_password: "",
-//     });
-//   }
-
-//   const logoStyle = {
-//     position: "absolute",
-//     top: 0,
-//     left: 0,
-//     display: "flex",
-//     flexDirection: "row",
-//     justifyContent: "flex-start",
-//     alignItems: "flex-start",
-//     alignSelf: "flex-start",
-//     marginBottom: "auto",
-//   };
-
-//   const whiteStyle = {
-//     color: "white",
-//     fontSize: "2rem",
-//     fontWeight: "bold",
-//     fontFamily: "serif",
-//     // marginRight: "0.5rem",
-//   };
-
-//   const yellowStyle = {
-//     color: "yellow",
-//     fontSize: "2rem",
-//     fontWeight: "bold",
-//     fontFamily: "serif",
-//   };
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -93,17 +9,10 @@ const [user, setUser] = useState({
 username: "",
 email: "",
 password: "",
-confirm_password: "",
 });
-// Get authentication status
-const isAuthenticated = localStorage.getItem("token");
 const handleRegister = async (event) => {
 event.preventDefault();
-// Redirect to login if user is not authenticated
-if (!isAuthenticated) {
-  navigate("/login");
-  return;
-}
+
 try {
   const res = await fetch("/user/signup", {
     method: "POST",
@@ -120,7 +29,7 @@ try {
       icon: "success",
       timer: 2000,
     });
-    setTimeout(() => navigate("/login"), 100);
+    setTimeout(() => navigate("/login"), 1000);
   } else {
     Swal.fire({
       title: "There was an error creating the user.",
@@ -140,7 +49,6 @@ setUser({
   username: "",
   email: "",
   password: "",
-  confirm_password: "",
 });
 };
   const logoStyle = {
@@ -258,7 +166,7 @@ setUser({
                     <label
                       htmlFor="password"
                       className="mb-2 text-sm font-medium text-gray-900"
-                    ></label>
+                    ></label >
                     <input
                       type="password"
                       name="password"
@@ -285,14 +193,6 @@ setUser({
                       name="confirm_password"
                       id="confirm_password"
                       placeholder="confirm password"
-                      value={user.confirm_password}
-                      onChange={(event) =>
-                        setUser((prevState) => ({
-                        // setStudent((prevState) => ({
-                          ...prevState,
-                          confirm_password: event.target.value,
-                        }))
-                      }
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
                       required
                     />
