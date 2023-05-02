@@ -1,12 +1,18 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show update destroy ]
 
-  # GET /orders
-  def index
-    @orders = Order.all
+  # GET /orders?user_id=1
+def index
+  @orders = Order.where(user_id: params[:user_id])
+  render json: @orders
+end
 
-    render json: @orders
-  end
+def admin_orders
+  @orders = Order.all
+  render json: @orders
+
+end
+
 
   # GET /orders/1
   def show
@@ -46,6 +52,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:user_id, :status, :address, :date_of_delivery, :quantity, :price)
+      params.permit(:user_id, :restaurant_id, :name,:status, :address, :date_of_delivery, :quantity, :price)
     end
 end

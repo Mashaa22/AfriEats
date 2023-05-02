@@ -5,12 +5,12 @@ class MealsController < ApplicationController
   def index
     @meals = Meal.all
 
-    render json: @meals
+    render json: @meals, each_serializer: MealsSerializer
   end
 
   # GET /meals/1
   def show
-    render json: @meal
+    render json: @meal, serializer: MealsSerializer
   end
 
   # POST /meals
@@ -46,6 +46,6 @@ class MealsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meal_params
-      params.require(:meal).permit(:menu_options_id, :name, :price, :description, :image_url)
+      params.permit(:menuoption_id, :name, :price, :description, :image_url)
     end
 end
