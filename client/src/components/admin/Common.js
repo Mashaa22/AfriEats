@@ -17,7 +17,7 @@ function Common() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch(`https://afrieats-app.onrender.com/auto_login?token=${token}`)
+    fetch(`${process.env.REACT_APP_API_URL}/auto_login?token=${token}`)
       .then(response => response.json())
       .then(data => {
         if (data.entity === 'admin' && data.admin) {

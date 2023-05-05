@@ -45,7 +45,7 @@ function App() {
     const token = localStorage.getItem("token");
   
     if (token) {
-      fetch('https://afrieats-app.onrender.com/auto_login', {
+      fetch(`${process.env.REACT_APP_API_URL}/auto_login`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',

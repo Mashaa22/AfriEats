@@ -21,7 +21,7 @@ function Meals() {
   });
 
   useEffect(() => {
-    fetch('https://afrieats-app.onrender.com/meals')
+    fetch(`${process.env.REACT_APP_API_URL}/meals`)
       .then(response => response.json())
       .then(data => setMeals(data))
       .catch(error => console.error(error));
@@ -42,7 +42,7 @@ function Meals() {
   const handleSubmit = async (meal) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('https://afrieats-app.onrender.com/orders', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -67,12 +67,26 @@ function Meals() {
  
     } catch (error) {
       console.error(error);
-    }
+    }  const token = localStorage.getItem('token');
+    fetch(`${process.env.REACT_APP_API_URL}/auto_login?token=${token}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.entity === 'user' && data.user) {
+          setUserId(data.user.id);
+          setFormData({
+            ...formData,
+            user_id: data.user.id // update formData with user id
+          });
+        } else {
+          console.log('Invalid response:', data);
+        }
+      })
+      .catch(error => console.log(error));
   };
  
    
   const token = localStorage.getItem('token');
-  fetch(`https://afrieats-app.onrender.com/auto_login?token=${token}`)
+  fetch(`${process.env.REACT_APP_API_URL}/auto_login?token=${token}`)
     .then(response => response.json())
     .then(data => {
       if (data.entity === 'user' && data.user) {

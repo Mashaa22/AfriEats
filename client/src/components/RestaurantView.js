@@ -28,7 +28,7 @@ address: '',
 useEffect(() => {
 const fetchRestaurant = async () => {
 try {
-const response = await fetch(`https://afrieats-app.onrender.com/restaurants/${id}`);
+const response = await fetch(`${process.env.REACT_APP_API_URL}/restaurants/${id}`);
 const data = await response.json();
   setRestaurant(data);
   setRestaurantId(data.id)
@@ -38,7 +38,7 @@ console.error('Error fetching restaurant:', error);
 };
  
 const token = localStorage.getItem('token');
-fetch(`https://afrieats-app.onrender.com/auto_login?token=${token}`)
+fetch(`${process.env.REACT_APP_API_URL}/auto_login?token=${token}`)
 .then(response => response.json())
 .then(data => {
 if (data.entity === 'user' && data.user) {
@@ -61,7 +61,7 @@ fetchRestaurant();
 useEffect(() => {
   const fetchCourse = async () => {
     try {
-      const res = await fetch("https://afrieats-app.onrender.com/meals");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/meals`);
       const data = await res.json();
       const filteredData = data.filter(meal => meal.restaurant.id === restaurantId);
       setMeals(filteredData);
@@ -88,7 +88,7 @@ const handleSubmit = async (event) => {
 event.preventDefault();
 try {
 const token = localStorage.getItem('token');
-const response = await fetch('https://afrieats-app.onrender.com/orders', {
+const response = await fetch(`${process.env.REACT_APP_API_URL}/orders`, {
 method: 'POST',
 headers: {
 'Content-Type': 'application/json',

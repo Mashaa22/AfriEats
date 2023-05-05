@@ -22,7 +22,7 @@ function AddToMenu({resId}){
         formData.append('price', menuData.price);
         formData.append('description', menuData.description);
         formData.append('image_url', menuData.image_url);
-        fetch("https://afrieats-app.onrender.com/menuoptions", {
+        fetch(`${process.env.REACT_APP_API_URL}/menuoptions`, {
             method: "POST",
             body: formData
         })

@@ -7,7 +7,7 @@ function RecentOrders({ adminId }) {
 
     //get orders
     useEffect(() => {
-        fetch("https://afrieats-app.onrender.com/admin_orders")
+        fetch(`${process.env.REACT_APP_API_URL}/admin_orders`)
         .then(res => res.json())
         .then(response => {
         //fetch data only related to logged in admin

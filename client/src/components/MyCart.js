@@ -24,7 +24,7 @@ function MyCart() {
     useEffect(() => {
         const fetchOrder = async () => {
         try {
-            const response = await fetch(`https://afrieats-app.onrender.com/orders?user_id=${userId}`);
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/orders?user_id=${userId}`);
             const data = await response.json();
             const orders = data.map((order) => {
             return {
@@ -42,7 +42,7 @@ function MyCart() {
 
         const token = localStorage.getItem('token');
         if (token) {
-        fetch(`https://afrieats-app.onrender.com/auto_login?token=${token}`)
+        fetch(`${process.env.REACT_APP_API_URL}/auto_login?token=${token}`)
             .then((response) => response.json())
             .then((data) => {
             if (data.entity === 'user' && data.user) {
