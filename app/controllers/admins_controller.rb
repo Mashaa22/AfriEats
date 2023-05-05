@@ -13,23 +13,23 @@ class AdminsController < ApplicationController
     render json: @admin
   end
 
-  # POST /admins
-  # def create
-  #   @admin = Admin.new(admin_params)
+  POST /admins
+  def create
+    @admin = Admin.new(admin_params)
 
-  #   if @admin.save
-  #     # Generate and save a random 6-digit PIN for the admin
-  #     pin = rand(100_000..999_999)
-  #     @admin.update(pin: pin)
+    if @admin.save
+      # Generate and save a random 6-digit PIN for the admin
+      pin = rand(100_000..999_999)
+      @admin.update(pin: pin)
 
-  #     # Send an email to the admin with the PIN
-  #     AdminMailer.send_pin(@admin, pin).deliver
+      # Send an email to the admin with the PIN
+      AdminMailer.send_pin(@admin, pin).deliver
 
-  #     render json: @admin, status: :created, location: @admin
-  #   else
-  #     render json: @admin.errors, status: :unprocessable_entity
-  #   end
-  # end
+      render json: @admin, status: :created, location: @admin
+    else
+      render json: @admin.errors, status: :unprocessable_entity
+    end
+  end
 
   # PATCH/PUT /admins/1
   def update
