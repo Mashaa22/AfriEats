@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './MyCart.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useParams } from 'react-router-dom';
@@ -71,8 +70,6 @@ const handleQuantityChange = (id, value) => {
      
     });
     setCourse(newCartItems);
-    console.log(newCartItems)
-    console.log(course)
     calculateTotal();
   };
     const handleIncrement = (id) => {
@@ -85,8 +82,6 @@ const handleQuantityChange = (id, value) => {
             }
         });
         });
-        console.log(course)
-        console.log(id)
         calculateTotal();
     };
     const handleDecrement = (id) => {
@@ -99,8 +94,6 @@ const handleQuantityChange = (id, value) => {
             }
         });
         });
-        console.log(course)
-        console.log(id)
         calculateTotal();
     };
     //get total price

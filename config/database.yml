@@ -19,8 +19,6 @@ test:
 
 production:
   <<: *default
-  database: afri_eats_production
-  host: localhost
-  username: alex
-  password: <%= ENV["afri_eats_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+
 

@@ -11,7 +11,6 @@ function Landing() {
     justifyContent: "center",
     alignItems: "center",
     borderRadius: "20px",
-    // padding: "2rem"
   };
 
   const contentStyle = {
