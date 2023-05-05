@@ -2,13 +2,50 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>  Your pin</title>
+    <title>Welcome to AfriEats</title>
     <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        background-color: #f5f5f5;
+        padding: 20px;
+      }
 
-  </style>
+      h1 {
+        font-size: 32px;
+        color: #ff7f50;
+        margin-top: 0;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      .message {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+      }
+
+      .signature {
+        font-weight: bold;
+        text-align: right;
+        margin-top: 40px;
+      }
+    </style>
   </head>
 
   <body>
-  <h1> Your pin is <%= @pin %></h1>
+    <div class="message">
+      <h1>Welcome to AfriEats!</h1>
+      <p>Dear Restaurateur,</p>
+      <p>Thank you for registering your restaurant with our app. We are excited to have you on board and look forward to working with you.</p>
+      <p>Your PIN number is: <%= @pin %></p>
+      <p>Please use this PIN to log into your restaurant's account on our app and start adding your menu items.</p>
+      <p>If you have any questions or concerns, please don't hesitate to reach out to our support team.</p>
+    </div>
+    <p class="signature">Best regards,<br>The AfriEats Team</p>
   </body>
 </html>
