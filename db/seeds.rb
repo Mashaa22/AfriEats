@@ -54,36 +54,47 @@ Admin.create([
         email: 'amaranga22@gmail.com',
         password_digest: '123456',
         image: '',
+        pin: 654321,
     },
     {
         username: 'mercy',
         email: 'mercy@gmail.com',
         password_digest: '1234',
         image: '',
+        pin: 123456,
+
     },
     {
         username: 'marksangiriaki',
         email: 'marksangiriaki@gmail.com',
         password_digest: 'marksangiriaki',
         image: '',
+        pin: 123456,
+
     },
     {
         username: 'mariamali',
         email: 'mariamali@gmail.com',
         password_digest: 'mariamali',
         image: '',
+        pin: 123456,
+
     },
     {
         username: 'daisyjebiwot',
         email: 'daisyjebiwot@gmail.com',
         password_digest: 'daisyjebiwot',
         image: '',
+        pin: 123456,
+
     },
     {
         username: 'abelmuriithi',
         email: 'abelmuriithi@gmai.com',
         password_digest: 'abelmuriithi',
-        image: ''
+        image: '',
+        pin: 123456,
+
     }
 ])
 puts '🔥 Seeded Admins...'
