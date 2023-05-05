@@ -21,7 +21,7 @@ function Meals() {
   });
 
   useEffect(() => {
-    fetch('/meals')
+    fetch('https://afrieats-app.onrender.com/meals')
       .then(response => response.json())
       .then(data => setMeals(data))
       .catch(error => console.error(error));
@@ -42,7 +42,7 @@ function Meals() {
   const handleSubmit = async (meal) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('/orders', {
+      const response = await fetch('https://afrieats-app.onrender.com/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ function Meals() {
  
    
   const token = localStorage.getItem('token');
-  fetch(`/auto_login?token=${token}`)
+  fetch(`https://afrieats-app.onrender.com/auto_login?token=${token}`)
     .then(response => response.json())
     .then(data => {
       if (data.entity === 'user' && data.user) {

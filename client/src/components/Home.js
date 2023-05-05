@@ -9,7 +9,7 @@ function Home() {
   const [restaurants, setRestaurants] = useState([]);
     useEffect(() => {
     const getRestaurants = async () => {
-        const response = await fetch("/restaurants");
+        const response = await fetch("https://afrieats-app.onrender.com/restaurants");
         const FinalData = await response.json();
         setRestaurants(FinalData)
     }

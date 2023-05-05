@@ -7,7 +7,7 @@ function MenuOption({option, onDelete, setDisplay, setMenu}){
     //delete menu option
     const handleDelete=(e)=>{
         e.preventDefault();
-        fetch(`/menuoptions/${id}`, {
+        fetch(`https://afrieats-app.onrender.com/menuoptions/${id}`, {
             method: "DELETE",
         })
         .then((response) => {
@@ -35,7 +35,7 @@ function MenuOption({option, onDelete, setDisplay, setMenu}){
 
         const formDataObj = Object.fromEntries(Array.from(formData.entries()));
         console.log(formDataObj);
-        fetch("/meals", {
+        fetch("https://afrieats-app.onrender.com/meals", {
         method: "POST",
         headers: {
         "Content-Type": "application/json",

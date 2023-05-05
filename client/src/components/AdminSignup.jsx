@@ -30,7 +30,7 @@ function AdminSignup() {
     event.preventDefault();
     console.log({ admin });
     try {
-      const response = await fetch("/admin/signup", {
+      const response = await fetch("https://afrieats-app.onrender.com/admin/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

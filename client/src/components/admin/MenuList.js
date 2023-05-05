@@ -12,7 +12,7 @@ function MenuList({ adminId }) {
 
     //get menu options
     useEffect(() => {
-        fetch("/menuoptions")
+        fetch("https://afrieats-app.onrender.com/menuoptions")
         .then(res => res.json())
         .then(response => {
             const filteredData = response.filter(menuOption => menuOption.restaurant_id === adminId);

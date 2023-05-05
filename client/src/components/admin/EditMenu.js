@@ -23,7 +23,7 @@ function EditMenu({menu, setDisplay, onUpdateMeal}){
         formData.append('image_url', menuData.image_url);
         console.log(menuData);
         console.log(formData);
-        fetch(`/menuoptions/${menu.id}`, {
+        fetch(`https://afrieats-app.onrender.com/menuoptions/${menu.id}`, {
             method: "PATCH",
             body: formData,
         })

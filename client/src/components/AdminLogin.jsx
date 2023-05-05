@@ -17,7 +17,7 @@ function AdminLogin(props) {
     
   function handleLogin(event) {
     event.preventDefault();
-    fetch("/login", {
+    fetch("https://afrieats-app.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
