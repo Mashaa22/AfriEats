@@ -13,7 +13,7 @@ class AdminsController < ApplicationController
     render json: @admin
   end
 
-  POST /admins
+  # POST /admins
   def create
     @admin = Admin.new(admin_params)
 
