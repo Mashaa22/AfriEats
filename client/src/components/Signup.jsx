@@ -14,7 +14,7 @@ const handleRegister = async (event) => {
 event.preventDefault();
 
 try {
-  const res = await fetch("/user/signup", {
+  const res = await fetch("https://afrieats-app.onrender.com/user/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
