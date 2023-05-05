@@ -40,24 +40,7 @@ function App() {
       setAdmin(true);
     }
   }
-  
-
-  function Logout() {
-    const navigate = useNavigate();
-  
-    function handleClick() {
-      localStorage.token = '';
-      navigate('/');
-    }
-  
-    return (
-      <button onClick={handleClick}>
-        Logout
-      </button>
-    );
-  }
-
-  
+    
   useEffect(() => {
     const token = localStorage.getItem("token");
   
