@@ -28,7 +28,7 @@ module AfriEats
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'https://afri-eats-h519y9arz-mashaa22.vercel.app'
+        origins 'https://afri-eats.vercel.app'
         resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
       end
     end
