@@ -26,7 +26,13 @@ module AfriEats
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore, key: '_myapp_session'
 
- 
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'https://afri-eats-h519y9arz-mashaa22.vercel.app'
+        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      end
+    end
+    
     # config.action_dispatch.cookies_same_site_protection = :strict
     # config.api_only = true
   end
