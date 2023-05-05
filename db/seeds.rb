@@ -5,47 +5,47 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-# puts '👥 Seeding Users...'
+puts '👥 Seeding Users...'
 
-# User.create([
-#     {
-#         username: 'mercy',
-#         email: 'mercienyambura@gmail.com',
-#         password_digest: 'mercienyambura',
-#         image: '',
-#     },
-#     {
-#         username: 'Alex',
-#         email: 'alex@gmail.com',
-#         password_digest: '123456',
-#         image: '',
-#     },
-#     {
-#         username: 'marksangiriaki',
-#         email: 'marksangiriaki@gmail.com',
-#         password_digest: 'marksangiriaki',
-#         image: '',
-#     },
-#     {
-#         username: 'mariamali',
-#         email: 'mariamali@gmail.com',
-#         password_digest: 'mariamali',
-#         image: '',
-#     },
-#     {
-#         username: 'daisyjebiwot',
-#         email: 'daisyjebiwot@gmail.com',
-#         password_digest: 'daisyjebiwot',
-#         image: '',
-#     },
-#     {
-#         username: 'abelmuriithi',
-#         email: 'abelmuriithi@gmai.com',
-#         password_digest: 'abelmuriithi',
-#         image: ''
-#     }
-# ])
-# puts '♨️ Seeded Users'
+User.create([
+    {
+        username: 'mercy',
+        email: 'mercienyambura@gmail.com',
+        password_digest: 'mercienyambura',
+        image: '',
+    },
+    {
+        username: 'Alex',
+        email: 'alex@gmail.com',
+        password_digest: '123456',
+        image: '',
+    },
+    {
+        username: 'marksangiriaki',
+        email: 'marksangiriaki@gmail.com',
+        password_digest: 'marksangiriaki',
+        image: '',
+    },
+    {
+        username: 'mariamali',
+        email: 'mariamali@gmail.com',
+        password_digest: 'mariamali',
+        image: '',
+    },
+    {
+        username: 'daisyjebiwot',
+        email: 'daisyjebiwot@gmail.com',
+        password_digest: 'daisyjebiwot',
+        image: '',
+    },
+    {
+        username: 'abelmuriithi',
+        email: 'abelmuriithi@gmai.com',
+        password_digest: 'abelmuriithi',
+        image: ''
+    }
+])
+puts '♨️ Seeded Users'
 
 
 Admin.create([
