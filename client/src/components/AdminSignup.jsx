@@ -30,7 +30,7 @@ function AdminSignup() {
     event.preventDefault();
     console.log({ admin });
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/signup`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/admin/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
