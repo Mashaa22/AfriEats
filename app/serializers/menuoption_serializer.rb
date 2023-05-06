@@ -7,7 +7,7 @@ class MenuoptionSerializer < ActiveModel::Serializer
   def image_url
     if object.image_url.attached?
       {
-        url: rails_blob_url(object.image_url, host: 'localhost:3000')
+        url: rails_blob_url(object.image_url, host: 'https://afrieats-app.onrender.com')
       }
     end
   end
