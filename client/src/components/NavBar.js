@@ -48,9 +48,6 @@ function NavBar() {
             </NavLink>
           </li>
           <li>
-          <Logout />
-          </li>
-          <li>
             <NavLink
               to="/notification"
               className="navbar__link"
@@ -77,8 +74,9 @@ function NavBar() {
               <IoPersonCircleSharp size={28} />
             </NavLink>
           </li>
-          
-          
+          <li>
+          <Logout />
+          </li>
         </ul>
       </div>
     </nav>

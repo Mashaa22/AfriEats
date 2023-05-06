@@ -7,97 +7,97 @@
 #   Character.create(name: "Luke", movie: movies.first)
 # puts '👥 Seeding Users...'
 
-User.create([
-    {
-        username: 'mercienyambura',
-        email: 'mercienyambura@gmail.com',
-        password_digest: 'mercienyambura',
-        image: '',
-    },
-    {
-        username: 'alex',
-        email: 'alex@gmail.com',
-        password_digest: '1234',
-        image: '',
-    },
-    {
-        username: 'marksangiriaki',
-        email: 'marksangiriaki@gmail.com',
-        password_digest: 'marksangiriaki',
-        image: '',
-    },
-    {
-        username: 'mariamali',
-        email: 'mariamali@gmail.com',
-        password_digest: 'mariamali',
-        image: '',
-    },
-    {
-        username: 'daisyjebiwot',
-        email: 'daisyjebiwot@gmail.com',
-        password_digest: 'daisyjebiwot',
-        image: '',
-    },
-    {
-        username: 'abelmuriithi',
-        email: 'abelmuriithi@gmai.com',
-        password_digest: 'abelmuriithi',
-        image: ''
-    }
-])
-puts '♨️ Seeded Users'
+# User.create([
+#     {
+#         username: 'mercienyambura',
+#         email: 'mercienyambura@gmail.com',
+#         password_digest: 'mercienyambura',
+#         image: '',
+#     },
+#     {
+#         username: 'alex',
+#         email: 'alex@gmail.com',
+#         password_digest: '1234',
+#         image: '',
+#     },
+#     {
+#         username: 'marksangiriaki',
+#         email: 'marksangiriaki@gmail.com',
+#         password_digest: 'marksangiriaki',
+#         image: '',
+#     },
+#     {
+#         username: 'mariamali',
+#         email: 'mariamali@gmail.com',
+#         password_digest: 'mariamali',
+#         image: '',
+#     },
+#     {
+#         username: 'daisyjebiwot',
+#         email: 'daisyjebiwot@gmail.com',
+#         password_digest: 'daisyjebiwot',
+#         image: '',
+#     },
+#     {
+#         username: 'abelmuriithi',
+#         email: 'abelmuriithi@gmai.com',
+#         password_digest: 'abelmuriithi',
+#         image: ''
+#     }
+# ])
+# puts '♨️ Seeded Users'
 
 
-Admin.create([
-    {
-        username: 'mercienyambura',
-        email: 'mercienyambura@gmail.com',
-        password_digest: 'mercienyambura',
-        image: '',
-        pin: '1234',
-    },
-    {
-        username: 'alex',
-        email: 'alex@gmail.com',
-        password_digest: '1234',
-        image: '',
-        pin: '1234',
+# Admin.create([
+#     {
+#         username: 'mercienyambura',
+#         email: 'mercienyambura@gmail.com',
+#         password_digest: 'mercienyambura',
+#         image: '',
+#         pin: '1234',
+#     },
+#     {
+#         username: 'alex',
+#         email: 'alex@gmail.com',
+#         password_digest: '1234',
+#         image: '',
+#         pin: '1234',
 
-    },
-    {
-        username: 'marksangiriaki',
-        email: 'marksangiriaki@gmail.com',
-        password_digest: 'marksangiriaki',
-        image: '',
-        pin: '1234',
+#     },
+#     {
+#         username: 'marksangiriaki',
+#         email: 'marksangiriaki@gmail.com',
+#         password_digest: 'marksangiriaki',
+#         image: '',
+#         pin: '1234',
 
-    },
-    {
-        username: 'mariamali',
-        email: 'mariamali@gmail.com',
-        password_digest: 'mariamali',
-        image: '',
-        pin: '1234',
+#     },
+#     {
+#         username: 'mariamali',
+#         email: 'mariamali@gmail.com',
+#         password_digest: 'mariamali',
+#         image: '',
+#         pin: '1234',
 
-    },
-    {
-        username: 'daisyjebiwot',
-        email: 'daisyjebiwot@gmail.com',
-        password_digest: 'daisyjebiwot',
-        image: '',
-        pin: '1234',
+#     },
+#     {
+#         username: 'daisyjebiwot',
+#         email: 'daisyjebiwot@gmail.com',
+#         password_digest: 'daisyjebiwot',
+#         image: '',
+#         pin: '1234',
 
-    },
-    {
-        username: 'abelmuriithi',
-        email: 'abelmuriithi@gmai.com',
-        password_digest: 'abelmuriithi',
-        image: '',
-        pin: '1234',
+#     },
+#     {
+#         username: 'abelmuriithi',
+#         email: 'abelmuriithi@gmai.com',
+#         password_digest: 'abelmuriithi',
+#         image: '',
+#         pin: '1234',
 
-    }
-])
-puts '🔥 Seeded Admins...'
+#     }
+# ])
+# puts '🔥 Seeded Admins...'
 
 
 Restaurant.create([

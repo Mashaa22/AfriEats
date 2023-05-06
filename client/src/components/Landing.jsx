@@ -51,8 +51,6 @@ function Landing() {
   return (
     <div style={backgroundStyle}>
       <div style={logoStyle}>
-        <span style={whiteStyle}>Afri</span>
-        <span style={yellowStyle}>Eats</span>
       </div>
       <div style={contentStyle}>
         <p className="text-4xl font-bold text-yellow-500">

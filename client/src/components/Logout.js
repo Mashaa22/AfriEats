@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import {  IoLogOut} from 'react-icons/io5';
+
 
 function Logout() {
   const navigate = useNavigate();
@@ -10,9 +12,9 @@ function Logout() {
   }
 
   return (
-    <button onClick={handleClick}>
-      Logout
-    </button>
+    <button className="navbar__link" onClick={handleClick}>
+    <IoLogOut size={28} />
+  </button>
   );
 }
 
