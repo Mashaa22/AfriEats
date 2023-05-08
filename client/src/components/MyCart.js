@@ -3,110 +3,122 @@ import './MyCart.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useParams } from 'react-router-dom';
 import { Modal, Button } from "react-bootstrap";
+import { IoTrashOutline } from 'react-icons/io5';
+
 
 function MyCart() {
     const [restaurant, setRestaurant] = useState({});
-    const [course, setCourse] = useState({});
+    const [course, setCourse] = useState([]);
     const [total, setTotal] = useState(0);
     const [userId, setUserId] = useState(null);
-    //const [quantity, setQuantity] = useState(1);
     const [formData, setFormData] = useState({
-        name: '',
-        date_of_delivery: '',
-        status: '',
-        price: '',
-        quantity: '1',
-        address: '',
+      name: '',
+      date_of_delivery: '',
+      status: '',
+      price: '',
+      quantity: 1,
+      address: '',
     });
-
+  
     const { id } = useParams();
-
+  
     useEffect(() => {
-        const fetchOrder = async () => {
+      const fetchOrder = async () => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/orders?user_id=${userId}`);
-            const data = await response.json();
-            const orders = data.map((order) => {
+          const response = await fetch(`${process.env.REACT_APP_API_URL}/orders?user_id=${userId}`);
+          const data = await response.json();
+          const orders = data.map((order) => {
             return {
-                name: order.name,
-                price: order.price,
-                id:order.id,
-                quantity: order.quantity
+              name: order.name,
+              price: order.price,
+              id: order.id,
+              quantity: order.quantity
             };
-            });
-            setCourse(orders);
+          });
+          setCourse(orders);
         } catch (error) {
-            console.error('Error fetching order:', error);
+          console.error('Error fetching order:', error);
         }
-        };
-
-        const token = localStorage.getItem('token');
-        if (token) {
+      };
+  
+      const token = localStorage.getItem('token');
+      if (token) {
         fetch(`${process.env.REACT_APP_API_URL}/auto_login?token=${token}`)
-            .then((response) => response.json())
-            .then((data) => {
+          .then((response) => response.json())
+          .then((data) => {
             if (data.entity === 'user' && data.user) {
-                setUserId(data.user.id);
-                setFormData({
+              setUserId(data.user.id);
+              setFormData({
                 ...formData,
                 user_id: data.user.id,
-                });
-                fetchOrder();
+              });
+              fetchOrder();
             } else {
-                console.log('Invalid response:', data);
+              console.log('Invalid response:', data);
             }
-            })
-            .catch((error) => console.log(error));
-        }
-    }, [userId]);
-
-//quantity increment and decrement handlers
-const handleQuantityChange = (id, value) => {
-    const newCartItems = course.map(item => {
-      if (item.id === id) {
-        return { ...item, quantity: parseInt(value) };
+          })
+          .catch((error) => console.log(error));
       }
-      return item;
-     
-    });
-    setCourse(newCartItems);
-    calculateTotal();
-  };
+    }, [userId]);
+  
+    // quantity increment and decrement handlers
+    const handleQuantityChange = (id, value) => {
+      const newCartItems = course.map(item => {
+        if (item.id === id) {
+          return { ...item, quantity: parseInt(value) };
+        }
+        return item;
+      });
+      setCourse(newCartItems);
+      calculateTotal();
+    };
+  
+  
     const handleIncrement = (id) => {
-        setCourse(courseOrder => {
+      setCourse(courseOrder => {
         return course.map(order => {
-            if (order.id === id) {
+          if (order.id === id) {
+            if (order.quantity === 0) {
+              return { ...order, quantity: 1 };
+            }
             return { ...order, quantity: order.quantity + 1 };
-            } else {
+          } else {
             return order;
-            }
+          }
         });
-        });
-        calculateTotal();
+      });
+      calculateTotal();
     };
+  
     const handleDecrement = (id) => {
-        setCourse(courseOrder => {
+      setCourse(courseOrder => {
         return course.map(order => {
-            if (order.id === id && order.quantity > 0) {
+          if (order.id === id && order.quantity > 1) {
             return { ...order, quantity: order.quantity - 1 };
-            } else {
+          } else {
             return order;
-            }
+          }
         });
-        });
-        calculateTotal();
+      });
+      calculateTotal();
     };
-    //get total price
-    const TotalPrice = (price, quantity) => {
-        return price * quantity;
-    };
-
+  
+    // get total price
+// get total price
+const TotalPrice = (price, quantity) => {
+  if (quantity <= 0) {
+    return 0;
+  } else {
+    return price * quantity;
+  }
+};
+  
     const calculateTotal = () => {
-        const newTotal = course.reduce((accumulator, item) => {
-          return accumulator + item.price * item.quantity;
-        }, 0);
-        setTotal(newTotal);
-      };
+      const newTotal = course.reduce((accumulator, item) => {
+        return accumulator + TotalPrice(item.price, item.quantity);
+      }, 0);
+      setTotal(newTotal);
+    };
 
        //checkout
     const [deliveryAddress, setDeliveryAddress] = useState('');
@@ -124,6 +136,13 @@ const handleQuantityChange = (id, value) => {
       setShowModal(false);
       
     };
+  
+    const handleDelete = (id) => {
+      const newCartItems = course.filter(item => item.id !== id);
+      setCourse(newCartItems);
+      calculateTotal();
+    };
+    
     return(
         <div className="my-cart">
             <div className="my-cart-image bg-info border d-flex aligns-items-center justify-content-center" style={{
@@ -167,12 +186,19 @@ const handleQuantityChange = (id, value) => {
                                 />
                                 <span className="input-group-btn">
                                     <button type="button" id={`quantity-btn-${index}`} onClick={() => handleIncrement(order.id)} className="quantity-left-minus btn btn-number btn-sm" data-type="plus" data-field="">
-                                        <span className="material-symbols-outlined">add</span>                                                                                              
-                                    </button>
+                                        <span className="material-symbols-outlined">add</span>
+                                  </button>
                                 </span>
+                                
                             </div>
                             </td>
+                            
                             <td>`${TotalPrice(order.price, order.quantity)}`</td>
+                            <td>
+                              <button onClick={() => handleDelete(order.id)}>
+                                <IoTrashOutline />
+                              </button>
+                            </td>
                         </tr>
                         ))
                     ) : (

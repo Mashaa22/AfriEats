@@ -146,7 +146,7 @@ function AdminLogin(props) {
                         type="text"
                         id="username"
                         value={login.username}
-                        placeholder="username"
+                        placeholder="username-Maranga"
                         onChange={(event) =>
                           setLogin((prevState) => ({
                             ...prevState,
@@ -171,7 +171,7 @@ function AdminLogin(props) {
                         className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
                         type="password"
                         id="password"
-                        placeholder="password"
+                        placeholder="password-123456"
                         value={login.password}
                         onChange={(event) =>
                           setLogin((prevState) => ({
@@ -197,7 +197,7 @@ function AdminLogin(props) {
                         className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5"
                         type="pin"
                         id="pin"
-                        placeholder="pin"
+                        placeholder="pin-526760"
                         value={login.pin}
                         onChange={(event) =>
                           setLogin((prevState) => ({

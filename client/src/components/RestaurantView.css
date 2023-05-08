@@ -1,4 +1,8 @@
- h1, p {
+.rvname{
+background-color: rgb(222, 210, 194);
+}
+
+h1, p {
     color: white;
   }
   

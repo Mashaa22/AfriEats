@@ -118,8 +118,8 @@ console.error(error);
 
 
 return (
-<div>
-<div>
+<div className="rvname">
+<div >
 <img src={restaurant.image_url} style={{ width: "100%", height: "300px", objectFit:"cover" }} />
 </div>
 

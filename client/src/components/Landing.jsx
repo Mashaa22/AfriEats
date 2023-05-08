@@ -1,4 +1,7 @@
 import React from "react";
+import './Landing.css';
+import { Link } from "react-router-dom";
+
 
 function Landing() {
   const backgroundStyle = {
@@ -53,6 +56,7 @@ function Landing() {
       <div style={logoStyle}>
       </div>
       <div style={contentStyle}>
+       <Link to ="/home"><button className="button-a" >Get Started</button></Link> 
         <p className="text-4xl font-bold text-yellow-500">
           We are giving your hunger new option, AfriEats is what you deserve.
         </p>

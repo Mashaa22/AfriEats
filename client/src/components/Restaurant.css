@@ -1,4 +1,5 @@
 .restaurant-page {
+  background-color: rgb(222, 210, 194);
   display: flex;
   flex-direction: column;
   align-items: center;

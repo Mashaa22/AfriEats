@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Restaurant.css';
 
 function Restaurant() {
   const [restaurants, setRestaurants] = useState([]);
@@ -53,7 +54,6 @@ function Restaurant() {
                 <img src={curElem.image_url} alt={curElem.name} style={imgStyle} />
               </Link>
               <div className='text1' style={textStyle}>
-                <h3>{curElem.name}</h3>
               </div>
             </div>
           );

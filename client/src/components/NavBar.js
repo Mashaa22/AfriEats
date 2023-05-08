@@ -1,9 +1,8 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom';
-import { IoNotifications, IoCart, IoPersonCircleSharp } from 'react-icons/io5';
+import { IoNotifications, IoCart, IoPerson} from 'react-icons/io5';
 import Logout from './Logout';
-
-import './NavBar.css';
+import './Navbar.css';
 
 
 function NavBar() {
@@ -11,7 +10,7 @@ function NavBar() {
      <nav>
       <div className="navbar__logo">
         <h1>
-        <Link to="/" className="custom-link" style={{ textDecoration: 'none', color: 'black', fontSize: '20px',    fontWeight: 'bold' }}>
+        <Link to="/" className="custom-link" style={{ textDecoration: 'none', color: 'rgb(247, 191, 8)', fontSize: '20px',    fontWeight: 'bold' }}>
          <b className='capital'>A</b>FRI<b className="navbar__logo-eats"><b className='capital'>E</b>ATS</b>
         </Link>
 
@@ -47,7 +46,7 @@ function NavBar() {
               About us
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to="/notification"
               className="navbar__link"
@@ -55,7 +54,7 @@ function NavBar() {
             >
               <IoNotifications size={25} />
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink
               to="/cart"
@@ -67,11 +66,11 @@ function NavBar() {
           </li>
           <li>
             <NavLink
-              to="/order-history"
+              to="/login"
               className="navbar__link"
               activeClassName="navbar__link--active"
             >
-              <IoPersonCircleSharp size={28} />
+  <IoPerson size={28} />
             </NavLink>
           </li>
           <li>
